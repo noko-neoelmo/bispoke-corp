@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1920, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BiSPOKE Recruitment</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
     <style>
@@ -41,7 +41,7 @@
             background-color: #F5F1E8;
             color: #2C4A4A;
             line-height: 1.8;
-            width: 1920px;
+            width: 100%;
             margin: 0 auto;
             overflow-x: hidden;
         }
@@ -54,15 +54,16 @@
         /* Color Variables */
         :root {
             --primary-teal: #2C4A4A;
-            --accent-gold: #C9A961;
+            --accent-gold: #B8956A;
             --bg-cream: #F5F1E8;
-            --text-white: #ffffff;
+            --text-white: #F5F3F0;
             --text-dark: #333333;
         }
 
         /* Utility Classes */
         .container {
-            width: 1400px;
+            max-width: 1400px;
+            width: 100%;
             margin: 0 auto;
             padding: 0 40px;
         }
@@ -133,8 +134,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 1400px;
+            max-width: 1400px;
+            width: 100%;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
         .logo {
@@ -421,7 +424,8 @@
         }
 
         .voice-card {
-            width: 500px;
+            max-width: 500px;
+            width: 100%;
             text-align: left;
         }
 
@@ -496,7 +500,7 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 16px;
-            background-color: #fafafa;
+            background-color: #F5F3F0;
             transition: all 0.3s ease;
             font-family: 'Noto Sans SC', sans-serif;
         }
@@ -504,7 +508,7 @@
         .form-input:focus, .form-select:focus, .form-textarea:focus {
             outline: none;
             border-color: var(--primary-teal);
-            background-color: #fff;
+            background-color: #F5F3F0;
         }
 
         .form-textarea {
@@ -605,6 +609,187 @@
             display: block;
         }
 
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 8px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--primary-teal);
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 24px;
+            }
+
+            .section-padding {
+                padding: 80px 0;
+            }
+
+            .section-title {
+                font-size: 32px;
+                margin-bottom: 48px;
+            }
+
+            .env-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .job-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero-title {
+                font-size: 48px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 320px;
+                height: 100vh;
+                background-color: var(--bg-cream);
+                flex-direction: column;
+                padding: 100px 40px 40px;
+                gap: 32px;
+                transition: right 0.3s ease;
+                box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-menu.open {
+                right: 0;
+            }
+
+            .section-padding {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 26px;
+                margin-bottom: 40px;
+            }
+
+            .hero-title {
+                font-size: 32px;
+                padding: 0 20px;
+            }
+
+            .hero-subtitle {
+                font-size: 16px;
+                padding: 0 20px;
+            }
+
+            .mission-inner {
+                max-width: 100%;
+            }
+
+            .mission-text {
+                font-size: 15px;
+                line-height: 2;
+            }
+
+            .mission-concepts {
+                flex-direction: column;
+                gap: 40px;
+                margin-top: 48px;
+            }
+
+            .env-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .env-grid[style] {
+                margin-top: 48px !important;
+            }
+
+            .env-image {
+                height: 240px;
+            }
+
+            .job-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .job-grid[style] {
+                margin-top: 48px !important;
+            }
+
+            .job-card {
+                padding: 32px 24px;
+            }
+
+            .voices-grid {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+
+            .voices-grid[style] {
+                margin-top: 48px !important;
+            }
+
+            .voice-card {
+                max-width: 100%;
+            }
+
+            .entry {
+                padding: 60px 0;
+            }
+
+            .form-container {
+                padding: 40px 24px;
+            }
+
+            .form-grid[style] {
+                grid-template-columns: 1fr !important;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .btn {
+                padding: 14px 36px;
+                font-size: 15px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -613,6 +798,11 @@
     <header>
         <div class="header-inner">
             <a href="#" class="logo">BiSPOKE</a>
+            <button class="hamburger" aria-label="メニュー" onclick="this.classList.toggle('active'); document.querySelector('.nav-menu').classList.toggle('open');">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-menu">
                 <li><a href="#mission" class="nav-link">私たちの想い</a></li>
                 <li><a href="#environment" class="nav-link">働く環境</a></li>
@@ -866,6 +1056,15 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.querySelectorAll('.nav-menu a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.querySelector('.nav-menu').classList.remove('open');
+                document.querySelector('.hamburger').classList.remove('active');
+            });
+        });
+    </script>
 
 </body>
 </html>
