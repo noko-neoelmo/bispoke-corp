@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, initial-scale=1.0">
+    <title>BiSPOKE Recruitment</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        @font-face {
+            font-family: 'Noto Serif SC';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSerifCJKsc-Regular.otf') format('opentype');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'Noto Serif SC';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSerifCJKsc-SemiBold.otf') format('opentype');
+            font-weight: 600;
+        }
+        @font-face {
+            font-family: 'Noto Sans SC';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSansHans-Regular.otf') format('opentype');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'Noto Sans SC';
+            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSansHans-Medium.otf') format('opentype');
+            font-weight: 500;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #F5F1E8;
+            color: #2C4A4A;
+            line-height: 1.8;
+            width: 1920px;
+            margin: 0 auto;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Noto Serif SC', serif;
+            font-weight: 600;
+        }
+
+        /* Color Variables */
+        :root {
+            --primary-teal: #2C4A4A;
+            --accent-gold: #C9A961;
+            --bg-cream: #F5F1E8;
+            --text-white: #ffffff;
+            --text-dark: #333333;
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .section-padding {
+            padding: 120px 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 48px;
+            background-color: var(--accent-gold);
+            color: var(--text-white);
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 4px;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover::after {
+            transform: translateX(0);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--text-white);
+            color: var(--text-white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--text-white);
+            color: var(--primary-teal);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 24px 0;
+            z-index: 1000;
+            background-color: rgba(245, 241, 232, 0.95);
+            border-bottom: 1px solid rgba(44, 74, 74, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--primary-teal);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 48px;
+            list-style: none;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--primary-teal);
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--primary-teal);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=2940&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 74, 74, 0.4);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: var(--text-white);
+        }
+
+        .hero-title {
+            font-size: 64px;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            margin-bottom: 48px;
+            letter-spacing: 0.1em;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        /* Mission Section */
+        .mission {
+            background-color: var(--primary-teal);
+            color: var(--text-white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 42px;
+            margin-bottom: 60px;
+            letter-spacing: 0.1em;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title.light {
+            color: var(--text-white);
+        }
+
+        .section-title.dark {
+            color: var(--primary-teal);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent-gold);
+        }
+
+        .mission-text {
+            font-size: 18px;
+            line-height: 2.2;
+            margin-bottom: 48px;
+            font-weight: 300;
+        }
+
+        .mission-concepts {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            margin-top: 80px;
+        }
+
+        .concept-item h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: var(--accent-gold);
+        }
+
+        .concept-item p {
+            font-size: 15px;
+            opacity: 0.8;
+            letter-spacing: 0.05em;
+        }
+
+        /* Working Environment */
+        .environment {
+            background-color: var(--text-white);
+        }
+
+        .env-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .env-card {
+            background: transparent;
+        }
+
+        .env-image {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 32px;
+            transition: transform 0.5s ease;
+        }
+
+        .env-card:hover .env-image {
+            transform: scale(1.02);
+        }
+
+        .env-title {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: var(--primary-teal);
+        }
+
+        .env-desc {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        /* Recruitment Section */
+        .recruitment {
+            background-color: #F5F1E8;
+        }
+
+        .job-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .job-card {
+            background-color: var(--text-white);
+            padding: 48px 40px;
+            border-radius: 4px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            border-top: 3px solid transparent;
+        }
+
+        .job-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(44, 74, 74, 0.08);
+            border-top: 3px solid var(--accent-gold);
+        }
+
+        .job-title {
+            font-size: 24px;
+            color: var(--primary-teal);
+            margin-bottom: 12px;
+        }
+
+        .job-type {
+            display: inline-block;
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 24px;
+            letter-spacing: 0.05em;
+        }
+
+        .job-desc {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 32px;
+            line-height: 1.8;
+            flex-grow: 1;
+        }
+
+        .job-link {
+            color: var(--primary-teal);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            transition: gap 0.3s ease;
+        }
+
+        .job-link:hover {
+            gap: 12px;
+            color: var(--accent-gold);
+        }
+
+        /* Employee Voice */
+        .voices {
+            background-color: var(--text-white);
+        }
+
+        .voices-grid {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+        }
+
+        .voice-card {
+            width: 500px;
+            text-align: left;
+        }
+
+        .voice-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .voice-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 2px solid var(--bg-cream);
+        }
+
+        .voice-info h4 {
+            font-size: 18px;
+            color: var(--primary-teal);
+            margin-bottom: 4px;
+        }
+
+        .voice-info span {
+            font-size: 13px;
+            color: #888;
+            letter-spacing: 0.05em;
+        }
+
+        .voice-quote {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #555;
+            position: relative;
+            padding-left: 24px;
+            border-left: 2px solid var(--accent-gold);
+            font-style: italic;
+        }
+
+        /* Entry Form */
+        .entry {
+            background-color: var(--primary-teal);
+            padding: 100px 0;
+        }
+
+        .form-container {
+            background-color: var(--text-white);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px;
+            border-radius: 4px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 32px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--primary-teal);
+            letter-spacing: 0.05em;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: #fafafa;
+            transition: all 0.3s ease;
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary-teal);
+            background-color: #fff;
+        }
+
+        .form-textarea {
+            height: 160px;
+            resize: vertical;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 48px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 60px;
+        }
+
+        .footer-logo {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 28px;
+            margin-bottom: 24px;
+            display: block;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-info {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #aaa;
+        }
+
+        .footer-heading {
+            font-size: 16px;
+            margin-bottom: 24px;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icon {
+            color: #aaa;
+            font-size: 20px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: var(--text-white);
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* Decorative Elements */
+        .decor-line {
+            width: 1px;
+            height: 80px;
+            background-color: var(--accent-gold);
+            margin: 0 auto 40px;
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">BiSPOKE</a>
+            <ul class="nav-menu">
+                <li><a href="#mission" class="nav-link">私たちの想い</a></li>
+                <li><a href="#environment" class="nav-link">働く環境</a></li>
+                <li><a href="#jobs" class="nav-link">募集職種</a></li>
+                <li><a href="#voices" class="nav-link">社員の声</a></li>
+                <li><a href="#entry" class="btn btn-sm" style="padding: 10px 24px; font-size: 14px;">ENTRY</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">大切にしてきたものを、<br>同じように大切にする</h1>
+            <p class="hero-subtitle">BiSPOKEで、あなたの技術と想いを未来へ</p>
+            <a href="#jobs" class="btn">募集職種を見る</a>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="mission" class="mission section-padding">
+        <div class="container mission-inner">
+            <span class="decor-line" style="background-color: rgba(255,255,255,0.2);"></span>
+            <h2 class="section-title light">私たちの想い</h2>
+            <div class="mission-text">
+                <p>
+                    宝石はただの物質ではありません。<br>
+                    それは持ち主の記憶、愛情、そして時間の結晶です。<br><br>
+                    BiSPOKEは「二度語られる物語」をテーマに、<br>
+                    かつて誰かの宝物だったジュエリーに新たな息吹を吹き込みます。<br>
+                    伝統を重んじながらも、現代の感覚で再定義する「継承と再定義」。
+                </p>
+            </div>
+
+            <div class="mission-concepts">
+                <div class="concept-item">
+                    <h3>Breath Deep</h3>
+                    <p>呼吸が、深くなる。<br>そんな心地よい空間と体験を。</p>
+                </div>
+                <div class="concept-item">
+                    <h3>Essential</h3>
+                    <p>脱・記号主義。<br>本質的な価値だけを追求する。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Working Environment -->
+    <section id="environment" class="environment section-padding">
+        <div class="container">
+            <div style="text-align: center;">
+                <h2 class="section-title dark">BiSPOKEで働くということ</h2>
+            </div>
+
+            <div class="env-grid" style="margin-top: 80px;">
+                <div class="env-card">
+                    <img src="https://images.unsplash.com/photo-1599643478518-17488fbbcd75?q=80&w=2940&auto=format&fit=crop" alt="Craftsmanship" class="env-image">
+                    <h3 class="env-title">世界に誇る甲府の職人技術</h3>
+                    <p class="env-desc">
+                        山梨県甲府市は宝石研磨と貴金属加工の聖地。<br>
+                        BiSPOKEでは、この地で培われた伝統技術を敬い、現代のデザインと融合させています。熟練の技と新しい感性が交差する場所で、技術を磨き続けられます。
+                    </p>
+                </div>
+                <div class="env-card">
+                    <img src="https://images.unsplash.com/photo-1577083288073-40892c0860a4?q=80&w=2806&auto=format&fit=crop" alt="Long Term" class="env-image">
+                    <h3 class="env-title">100年続く会社を目指して</h3>
+                    <p class="env-desc">
+                        流行を追うだけのビジネスではなく、世代を超えて愛されるブランドへ。私たちは短期的な利益よりも、長期的な信頼と品質を重視します。腰を据えて、じっくりと仕事に向き合える環境です。
+                    </p>
+                </div>
+                <div class="env-card">
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2940&auto=format&fit=crop" alt="Team Culture" class="env-image">
+                    <h3 class="env-title">静かな強さを持つチーム</h3>
+                    <p class="env-desc">
+                        派手なパフォーマンスよりも、実直な仕事を評価します。<br>
+                        内には「良いものを作りたい」という反骨精神と情熱を秘めながら、チームとしては穏やかで凛とした空気が流れています。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Descriptions -->
+    <section id="jobs" class="recruitment section-padding">
+        <div class="container">
+            <div style="text-align: center;">
+                <h2 class="section-title dark">募集職種</h2>
+            </div>
+
+            <div class="job-grid" style="margin-top: 80px;">
+                <!-- Job 1 -->
+                <div class="job-card">
+                    <div>
+                        <h3 class="job-title">ジュエリー職人</h3>
+                        <span class="job-type">正社員 / 契約社員</span>
+                        <p class="job-desc">
+                            リモデル・リサイズを中心としたジュエリー加工業務全般。お客様の大切なジュエリーを直接手に取り、新たな命を吹き込む責任ある仕事です。繊細な手仕事が得意な方を歓迎します。
+                        </p>
+                    </div>
+                    <a href="#" class="job-link">詳細を見る <i class="ri-arrow-right-line"></i></a>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="job-card">
+                    <div>
+                        <h3 class="job-title">デザイナー</h3>
+                        <span class="job-type">正社員 / 業務委託</span>
+                        <p class="job-desc">
+                            ジュエリーのデザイン画作成から、ブランドの世界観を表現するウェブ・グラフィック制作まで。BiSPOKEの美学を視覚化し、お客様に届けるクリエイティブなポジションです。
+                        </p>
+                    </div>
+                    <a href="#" class="job-link">詳細を見る <i class="ri-arrow-right-line"></i></a>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="job-card">
+                    <div>
+                        <h3 class="job-title">カスタマーサポート</h3>
+                        <span class="job-type">正社員 / アルバイト</span>
+                        <p class="job-desc">
+                            オンライン・店舗でのお客様対応。ジュエリーに関する相談受付や、リモデルの提案など。お客様の想いを汲み取り、職人へと繋ぐ架け橋となる重要な役割です。
+                        </p>
+                    </div>
+                    <a href="#" class="job-link">詳細を見る <i class="ri-arrow-right-line"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Voices Section -->
+    <section id="voices" class="voices section-padding">
+        <div class="container">
+            <div style="text-align: center;">
+                <h2 class="section-title dark">社員の声</h2>
+            </div>
+
+            <div class="voices-grid" style="margin-top: 80px;">
+                <div class="voice-card">
+                    <div class="voice-header">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2788&auto=format&fit=crop" alt="Employee 1" class="voice-img">
+                        <div class="voice-info">
+                            <h4>Yuki Tanaka</h4>
+                            <span>チーフデザイナー / 入社5年目</span>
+                        </div>
+                    </div>
+                    <p class="voice-quote">
+                        「以前は大量生産の現場にいましたが、ここでは一つ一つのジュエリーと向き合う時間が圧倒的に長いです。『なぜこの形にするのか』を突き詰められる環境が、クリエイターとして何よりの贅沢だと感じています。」
+                    </p>
+                </div>
+
+                <div class="voice-card">
+                    <div class="voice-header">
+                        <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=2940&auto=format&fit=crop" alt="Employee 2" class="voice-img">
+                        <div class="voice-info">
+                            <h4>Kenji Sato</h4>
+                            <span>工房長 / 入社12年目</span>
+                        </div>
+                    </div>
+                    <p class="voice-quote">
+                        「お客様から預かるのは、単なる貴金属ではなく『想い』です。修理やリモデルを通じて、その想いを次の世代へ繋ぐ手伝いができる。その責任感が、私たちの技術をより高みへと引き上げてくれるのです。」
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Entry Form -->
+    <section id="entry" class="entry">
+        <div class="container">
+            <div class="form-container">
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <h2 class="section-title dark" style="margin-bottom: 10px;">ENTRY</h2>
+                    <p style="color: #666;">下記フォームよりご応募ください。</p>
+                </div>
+
+                <form>
+                    <div class="form-group">
+                        <label class="form-label">お名前</label>
+                        <input type="text" class="form-input" placeholder="例：山田 太郎">
+                    </div>
+
+                    <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+                        <div class="form-group">
+                            <label class="form-label">メールアドレス</label>
+                            <input type="email" class="form-input" placeholder="example@bispoke.jp">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">電話番号</label>
+                            <input type="tel" class="form-input" placeholder="090-1234-5678">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">希望職種</label>
+                        <select class="form-select">
+                            <option value="">選択してください</option>
+                            <option value="craftsman">ジュエリー職人</option>
+                            <option value="designer">デザイナー</option>
+                            <option value="support">カスタマーサポート</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">メッセージ・志望動機</label>
+                        <textarea class="form-textarea" placeholder="ご自由にご記入ください"></textarea>
+                    </div>
+
+                    <div class="form-footer">
+                        <button type="submit" class="btn" style="width: 240px;">応募する</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="#" class="footer-logo">BiSPOKE</a>
+                    <div class="footer-info">
+                        〒107-0062<br>
+                        東京都港区南青山5-12-3<br>
+                        TEL: 03-1234-5678<br>
+                        Mail: info@bispoke.jp
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">ブランドサイト</a></li>
+                        <li><a href="#">採用情報トップ</a></li>
+                        <li><a href="#">プライバシーポリシー</a></li>
+                        <li><a href="#">特定商取引法に基づく表記</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Social</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="ri-instagram-line"></i></a>
+                        <a href="#" class="social-icon"><i class="ri-facebook-fill"></i></a>
+                        <a href="#" class="social-icon"><i class="ri-pinterest-line"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2024 BiSPOKE Inc. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
