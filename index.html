@@ -307,27 +307,38 @@
         }
 
         .mission-concepts {
-            display: flex;
-            justify-content: center;
-            gap: 80px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
             margin-top: 80px;
         }
 
         .concept-item {
-            max-width: 360px;
+            text-align: left;
         }
 
         .concept-item h3 {
-            font-size: 22px;
+            font-size: 18px;
             margin-bottom: 16px;
             color: var(--uzume-brass);
-            letter-spacing: 0.08em;
+            letter-spacing: 0.04em;
+            line-height: 1.6;
+        }
+
+        .concept-item .concept-en {
+            display: block;
+            font-size: 13px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            letter-spacing: 0.12em;
+            opacity: 0.5;
+            margin-bottom: 8px;
+            font-weight: 400;
         }
 
         .concept-item p {
-            font-size: 15px;
-            opacity: 0.8;
-            letter-spacing: 0.04em;
+            font-size: 14px;
+            opacity: 0.75;
+            letter-spacing: 0.02em;
             line-height: 2;
         }
 
@@ -794,7 +805,7 @@
             }
 
             .mission-concepts {
-                flex-direction: column;
+                grid-template-columns: 1fr;
                 gap: 40px;
                 margin-top: 48px;
             }
@@ -907,7 +918,6 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 class="hero-title">誰かが大切にしてきたものを、<br>同じように大切にする</h1>
-            <p class="hero-subtitle">BiSPOKEで、あなたの技術と想いを未来へ</p>
             <a href="#jobs" class="btn">募集職種を見る</a>
         </div>
     </section>
@@ -919,22 +929,31 @@
             <h2 class="section-title light">私たちの想い</h2>
             <div class="mission-text">
                 <p>
-                    宝石はただの物質ではありません。<br>
-                    それは贈った人の想い、受け取った人の記憶、そして流れた時間の結晶です。<br><br>
-                    BiSPOKEは、三世代先まで語られる感動体験をお客様に提供することをミッションに、<br>
-                    かつて誰かの宝物だったジュエリーに新たな息吹を吹き込みます。<br>
-                    想いを見つめ、物語を繋ぐ。それが私たちの仕事です。
+                    Bi（二度・再び）＋ SPOKE（語られた）。<br>
+                    一度手に入れた時だけでなく、受け継がれる時、そしてその次へ——<br>
+                    人生で何度も語り継がれる体験をつくる。それがBiSPOKEの原点です。<br><br>
+                    私たちのブランド UZUME（ウズメ）は、<br>
+                    天岩戸の前で踊り、人々に気づきをもたらした女神の名を冠しています。<br>
+                    見えなくなった愛を、もう一度見えるかたちにする。<br>
+                    眠っていたジュエリーに「今のあなた」のための新しい意味を与える場所です。
                 </p>
             </div>
 
             <div class="mission-concepts">
                 <div class="concept-item">
-                    <h3>Heritage — 想いを見つめる</h3>
-                    <p>贈った人の想い。受け取った人の記憶。<br>時を経て深まる美しさ。<br>私たちが見るのは、石のグレードではなく、<br>そこに宿る物語です。</p>
+                    <span class="concept-en">ETHICAL INHERITANCE</span>
+                    <h3>継承の倫理</h3>
+                    <p>誰かが大切にしてきたものを、同じ温度で大切にする。記号的な価値ではなく、情緒的な価値——物語・想い・祈りを最優先する。</p>
                 </div>
                 <div class="concept-item">
-                    <h3>Rock — 余計なものを削ぐ</h3>
-                    <p>記号消費を弾く。スペック訴求を弾く。<br>新品の輝きに価値を置かない。<br>本質だけを見つめ、<br>ノイズを削ぎ落とす。</p>
+                    <span class="concept-en">NOBLE REBELLION</span>
+                    <h3>静かなる反骨</h3>
+                    <p>声は荒げない。でも中指は立てる。使い捨ての消費文化に対する、静かなアンチテーゼ。既存の業界慣習に、行動で異を唱える。</p>
+                </div>
+                <div class="concept-item">
+                    <span class="concept-en">FILL FIRST, THEN FLOW</span>
+                    <h3>満ちてから動く</h3>
+                    <p>自分が満たされることが、感性を守り、いい仕事につながる。枯渇した状態で誰かに与えようとしない。先に自分を満たす。</p>
                 </div>
             </div>
         </div>
@@ -950,23 +969,23 @@
             <div class="env-grid" style="margin-top: 80px;">
                 <div class="env-card">
                     <img src="https://images.unsplash.com/photo-1599643478518-17488fbbcd75?q=80&w=2940&auto=format&fit=crop" alt="職人の手仕事" class="env-image">
-                    <h3 class="env-title">想いを受け取る手仕事</h3>
+                    <h3 class="env-title">想いを聴いてから、手を動かす</h3>
                     <p class="env-desc">
-                        お客様から預かるのは、貴金属ではなく「想い」。山梨県甲府市で受け継がれてきた宝石研磨と貴金属加工の技術を土台に、一つひとつのジュエリーの物語と向き合います。
+                        お客様から預かるのは、貴金属ではなく「想い」。石と地金だけ見て即査定するようなことはしない。想いを聴き、物語を受け取ってから、はじめて手を動かします。
                     </p>
                 </div>
                 <div class="env-card">
-                    <img src="https://images.unsplash.com/photo-1577083288073-40892c0860a4?q=80&w=2806&auto=format&fit=crop" alt="長期的な視点" class="env-image">
-                    <h3 class="env-title">三世代先を見据えて</h3>
+                    <img src="https://images.unsplash.com/photo-1577083288073-40892c0860a4?q=80&w=2806&auto=format&fit=crop" alt="静かな反骨" class="env-image">
+                    <h3 class="env-title">業界の「当たり前」に、静かに異を唱える</h3>
                     <p class="env-desc">
-                        流行を追うのではなく、世代を超えて受け継がれるものをつくる。短期的な数字よりも、長期的な信頼と品質を重視する。腰を据えて、じっくりと仕事に向き合える環境です。
+                        セールで煽らない。スペックで競わない。不透明な業界慣習に同調しない。私たちは独自の審美眼と哲学で、自分たちの居場所をつくります。
                     </p>
                 </div>
                 <div class="env-card">
                     <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2940&auto=format&fit=crop" alt="チームの空気" class="env-image">
-                    <h3 class="env-title">静かな強さを持つチーム</h3>
+                    <h3 class="env-title">満ちてから、動く</h3>
                     <p class="env-desc">
-                        派手なパフォーマンスよりも、実直な仕事。内に「良いものをつくりたい」という情熱を秘めながら、穏やかで凛とした空気が流れています。
+                        自己犠牲を美徳にしない。疲れたら休む。自分が満たされることが、感性を守り、最高の仕事につながると信じています。先に自分を大切にできる環境です。
                     </p>
                 </div>
             </div>
