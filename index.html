@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>株式会社BiSPOKE | 採用サイト</title>
+    <meta name="description" content="株式会社BiSPOKE 採用サイト。ジュエリーリモデルブランド UZUME（ウズメ）を運営。誰かが大切にしてきたものを、同じように大切にする仲間を募集しています。">
+    <meta property="og:title" content="株式会社BiSPOKE | 採用サイト">
+    <meta property="og:description" content="ジュエリーリモデルブランド UZUME を運営する BiSPOKE の採用情報。三世代先まで語り継がれる感動体験を、一緒につくりませんか。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bispoke.jp">
+    <meta property="og:image" content="https://bispoke.jp/images/og-image.png">
+    <link rel="icon" href="favicon.ico">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
     <style>
         /* General Reset */
@@ -15,42 +22,20 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        @font-face {
-            font-family: 'Noto Serif SC';
-            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSerifCJKsc-Regular.otf') format('opentype');
-            font-weight: 400;
-        }
-        @font-face {
-            font-family: 'Noto Serif SC';
-            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSerifCJKsc-SemiBold.otf') format('opentype');
-            font-weight: 600;
-        }
-        @font-face {
-            font-family: 'Noto Sans SC';
-            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSansHans-Regular.otf') format('opentype');
-            font-weight: 400;
-        }
-        @font-face {
-            font-family: 'Noto Sans SC';
-            src: url('https://assets-persist.lovart.ai/agent-static-assets/NotoSansHans-Medium.otf') format('opentype');
-            font-weight: 500;
-        }
-
         :root {
-            --uzume-midnight: #0D1F2D;
-            --uzume-dark-cyan: #1B3A3A;
-            --uzume-muted-cyan: #2A5555;
-            --uzume-brass: #B8956A;
-            --uzume-sky: #6B8FA3;
+            --uzume-navy: #1B2A4A;
+            --uzume-muted-blue: #7A9AB5;
             --uzume-silver: #C0C5C9;
-            --uzume-charcoal: #2A2A2A;
-            --uzume-warm-white: #F5F3F0;
+            --uzume-off-white: #FAF8F5;
+            --uzume-warm-gray: #E8E4E1;
+            --uzume-ink: #3D3D3D;
+            --uzume-brass: #C9A86C;
         }
 
         body {
-            font-family: 'Noto Sans SC', 'Yu Gothic', 'YuGothic', sans-serif;
-            background-color: var(--uzume-warm-white);
-            color: var(--uzume-dark-cyan);
+            font-family: "Helvetica Neue", "Yu Gothic", "游ゴシック", "YuGothic", sans-serif;
+            background-color: var(--uzume-off-white);
+            color: var(--uzume-navy);
             line-height: 1.8;
             width: 100%;
             margin: 0 auto;
@@ -58,8 +43,8 @@
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Noto Serif SC', 'Yu Gothic', 'YuGothic', sans-serif;
-            font-weight: 600;
+            font-family: "Helvetica Neue", "Yu Gothic", "游ゴシック", "YuGothic", sans-serif;
+            font-weight: 500;
         }
 
         /* Utility Classes */
@@ -79,8 +64,8 @@
             align-items: center;
             justify-content: center;
             padding: 16px 48px;
-            background-color: var(--uzume-muted-cyan);
-            color: var(--uzume-warm-white);
+            background-color: var(--uzume-muted-blue);
+            color: var(--uzume-off-white);
             font-size: 16px;
             font-weight: 500;
             text-decoration: none;
@@ -89,7 +74,7 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            font-family: 'Noto Sans SC', sans-serif;
+            font-family: "Helvetica Neue", "Yu Gothic", "游ゴシック", "YuGothic", sans-serif;
             border: none;
             cursor: pointer;
         }
@@ -112,13 +97,13 @@
 
         .btn-outline {
             background-color: transparent;
-            border: 1px solid var(--uzume-warm-white);
-            color: var(--uzume-warm-white);
+            border: 1px solid var(--uzume-off-white);
+            color: var(--uzume-off-white);
         }
 
         .btn-outline:hover {
-            background-color: var(--uzume-warm-white);
-            color: var(--uzume-dark-cyan);
+            background-color: var(--uzume-off-white);
+            color: var(--uzume-navy);
         }
 
         /* Header */
@@ -129,7 +114,7 @@
             width: 100%;
             padding: 16px 0;
             z-index: 1000;
-            background-color: var(--uzume-dark-cyan);
+            background-color: var(--uzume-navy);
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(10px);
         }
@@ -164,7 +149,7 @@
 
         .nav-link {
             text-decoration: none;
-            color: var(--uzume-warm-white);
+            color: var(--uzume-off-white);
             font-size: 14px;
             letter-spacing: 0.05em;
             position: relative;
@@ -184,7 +169,7 @@
             left: 0;
             width: 0;
             height: 1px;
-            background-color: var(--uzume-warm-white);
+            background-color: var(--uzume-off-white);
             transition: width 0.3s ease;
         }
 
@@ -195,8 +180,8 @@
         .btn-header {
             padding: 10px 24px;
             font-size: 14px;
-            background-color: var(--uzume-brass);
-            color: var(--uzume-warm-white);
+            background-color: var(--uzume-muted-blue);
+            color: var(--uzume-off-white);
         }
 
         /* Hero Section */
@@ -216,7 +201,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=2940&auto=format&fit=crop');
+            background-image: url('images/D1-A_知らない価値_ライカ.png');
             background-size: cover;
             background-position: center;
             z-index: 1;
@@ -228,7 +213,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, rgba(13, 31, 45, 0.6) 0%, rgba(27, 58, 58, 0.5) 100%);
+            background: linear-gradient(180deg, rgba(27, 42, 74, 0.6) 0%, rgba(27, 42, 74, 0.5) 100%);
             z-index: 2;
         }
 
@@ -236,7 +221,7 @@
             position: relative;
             z-index: 3;
             text-align: center;
-            color: var(--uzume-warm-white);
+            color: var(--uzume-off-white);
         }
 
         .hero-title {
@@ -258,8 +243,8 @@
 
         /* Mission Section */
         .mission {
-            background-color: var(--uzume-dark-cyan);
-            color: var(--uzume-warm-white);
+            background-color: var(--uzume-navy);
+            color: var(--uzume-off-white);
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -281,11 +266,11 @@
         }
 
         .section-title.light {
-            color: var(--uzume-warm-white);
+            color: var(--uzume-off-white);
         }
 
         .section-title.dark {
-            color: var(--uzume-dark-cyan);
+            color: var(--uzume-navy);
         }
 
         .section-title::after {
@@ -344,7 +329,7 @@
 
         /* Working Environment */
         .environment {
-            background-color: var(--uzume-warm-white);
+            background-color: var(--uzume-off-white);
         }
 
         .env-grid {
@@ -373,7 +358,7 @@
         .env-title {
             font-size: 24px;
             margin-bottom: 16px;
-            color: var(--uzume-dark-cyan);
+            color: var(--uzume-navy);
         }
 
         .env-desc {
@@ -384,7 +369,7 @@
 
         /* Recruitment Section */
         .recruitment {
-            background-color: var(--uzume-warm-white);
+            background-color: var(--uzume-off-white);
         }
 
         .job-grid {
@@ -407,13 +392,13 @@
 
         .job-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(27, 58, 58, 0.08);
+            box-shadow: 0 20px 40px rgba(27, 42, 74, 0.08);
             border-top: 3px solid var(--uzume-brass);
         }
 
         .job-title {
             font-size: 24px;
-            color: var(--uzume-dark-cyan);
+            color: var(--uzume-navy);
             margin-bottom: 12px;
         }
 
@@ -434,7 +419,7 @@
         }
 
         .job-link {
-            color: var(--uzume-dark-cyan);
+            color: var(--uzume-navy);
             text-decoration: none;
             font-weight: 500;
             display: inline-flex;
@@ -449,65 +434,10 @@
             color: var(--uzume-brass);
         }
 
-        /* Employee Voice */
-        .voices {
-            background-color: var(--uzume-warm-white);
-            border-top: 1px solid rgba(27, 58, 58, 0.06);
-        }
-
-        .voices-grid {
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-        }
-
-        .voice-card {
-            max-width: 500px;
-            width: 100%;
-            text-align: left;
-        }
-
-        .voice-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 24px;
-        }
-
-        .voice-img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 20px;
-            border: 2px solid var(--uzume-warm-white);
-        }
-
-        .voice-info h4 {
-            font-size: 18px;
-            color: var(--uzume-dark-cyan);
-            margin-bottom: 4px;
-        }
-
-        .voice-info span {
-            font-size: 13px;
-            color: #888;
-            letter-spacing: 0.05em;
-        }
-
-        .voice-quote {
-            font-size: 16px;
-            line-height: 1.9;
-            color: #555;
-            position: relative;
-            padding-left: 24px;
-            border-left: 2px solid var(--uzume-brass);
-            font-style: italic;
-        }
-
         /* Company Overview */
         .company {
-            background-color: var(--uzume-dark-cyan);
-            color: var(--uzume-warm-white);
+            background-color: var(--uzume-navy);
+            color: var(--uzume-off-white);
         }
 
         .company-inner {
@@ -543,17 +473,17 @@
             padding: 20px 24px;
             font-size: 15px;
             line-height: 1.8;
-            color: rgba(245, 243, 240, 0.85);
+            color: rgba(250, 248, 245, 0.85);
         }
 
         /* Entry Form */
         .entry {
-            background-color: var(--uzume-midnight);
+            background-color: var(--uzume-navy);
             padding: 100px 0;
         }
 
         .form-container {
-            background-color: var(--uzume-warm-white);
+            background-color: var(--uzume-off-white);
             max-width: 800px;
             margin: 0 auto;
             padding: 80px;
@@ -570,7 +500,7 @@
             margin-bottom: 10px;
             font-size: 14px;
             font-weight: 500;
-            color: var(--uzume-dark-cyan);
+            color: var(--uzume-navy);
             letter-spacing: 0.05em;
         }
 
@@ -580,15 +510,15 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 16px;
-            background-color: var(--uzume-warm-white);
+            background-color: var(--uzume-off-white);
             transition: all 0.3s ease;
-            font-family: 'Noto Sans SC', sans-serif;
+            font-family: "Helvetica Neue", "Yu Gothic", "游ゴシック", "YuGothic", sans-serif;
         }
 
         .form-input:focus, .form-select:focus, .form-textarea:focus {
             outline: none;
-            border-color: var(--uzume-dark-cyan);
-            background-color: var(--uzume-warm-white);
+            border-color: var(--uzume-navy);
+            background-color: var(--uzume-off-white);
         }
 
         .form-textarea {
@@ -603,14 +533,14 @@
 
         /* Footer */
         footer {
-            background-color: var(--uzume-midnight);
+            background-color: var(--uzume-navy);
             color: #fff;
             padding: 80px 0 40px;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-columns: 2fr 1fr;
             gap: 60px;
             margin-bottom: 60px;
             border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -660,22 +590,6 @@
             color: var(--uzume-brass);
         }
 
-        .social-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .social-icon {
-            color: var(--uzume-silver);
-            font-size: 20px;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .social-icon:hover {
-            color: var(--uzume-warm-white);
-        }
-
         .copyright {
             text-align: center;
             font-size: 13px;
@@ -708,7 +622,7 @@
             display: block;
             width: 24px;
             height: 2px;
-            background-color: var(--uzume-warm-white);
+            background-color: var(--uzume-off-white);
             transition: all 0.3s ease;
         }
 
@@ -764,7 +678,7 @@
                 width: 80%;
                 max-width: 320px;
                 height: 100vh;
-                background-color: var(--uzume-dark-cyan);
+                background-color: var(--uzume-navy);
                 flex-direction: column;
                 padding: 100px 40px 40px;
                 gap: 32px;
@@ -836,20 +750,6 @@
                 padding: 32px 24px;
             }
 
-            .voices-grid {
-                flex-direction: column;
-                align-items: center;
-                gap: 40px;
-            }
-
-            .voices-grid[style] {
-                margin-top: 48px !important;
-            }
-
-            .voice-card {
-                max-width: 100%;
-            }
-
             .entry {
                 padding: 60px 0;
             }
@@ -893,7 +793,7 @@
         <div class="header-inner">
             <a href="#" class="logo">
                 <svg viewBox="0 0 180 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <text x="0" y="22" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="8" fill="#F5F3F0">BiSPOKE</text>
+                    <text x="0" y="22" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="8" fill="#FAF8F5">BiSPOKE</text>
                 </svg>
             </a>
             <button class="hamburger" aria-label="メニュー" onclick="this.classList.toggle('active'); document.querySelector('.nav-menu').classList.toggle('open');">
@@ -966,21 +866,21 @@
 
             <div class="env-grid" style="margin-top: 80px;">
                 <div class="env-card">
-                    <img src="https://images.unsplash.com/photo-1515709980177-7a7d628c09ba?q=80&w=2940&auto=format&fit=crop" alt="職人の手仕事" class="env-image">
+                    <img src="images/UZUME店舗_職人エリア_俯瞰アンク_ル_ライカ70_.png" alt="職人の手仕事" class="env-image">
                     <h3 class="env-title">想いを聴いてから、手を動かす</h3>
                     <p class="env-desc">
                         お客様から預かるのは、貴金属ではなく「想い」。石と地金だけ見て即査定するようなことはしない。想いを聴き、物語を受け取ってから、はじめて手を動かします。
                     </p>
                 </div>
                 <div class="env-card">
-                    <img src="https://images.unsplash.com/photo-1577083288073-40892c0860a4?q=80&w=2806&auto=format&fit=crop" alt="静かな反骨" class="env-image">
+                    <img src="images/UZUME店舗_夜の外観_ライカ70_.png" alt="静かな反骨" class="env-image">
                     <h3 class="env-title">業界の「当たり前」に、静かに異を唱える</h3>
                     <p class="env-desc">
                         セールで煽らない。スペックで競わない。不透明な業界慣習に同調しない。私たちは独自の審美眼と哲学で、自分たちの居場所をつくります。
                     </p>
                 </div>
                 <div class="env-card">
-                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2940&auto=format&fit=crop" alt="チームの空気" class="env-image">
+                    <img src="images/UZUME店舗_金継き_テーフ_ル_ライカ70_.png" alt="チームの空気" class="env-image">
                     <h3 class="env-title">満ちてから、動く</h3>
                     <p class="env-desc">
                         自己犠牲を美徳にしない。疲れたら休む。自分が満たされることが、感性を守り、最高の仕事につながると信じています。先に自分を大切にできる環境です。
@@ -1135,7 +1035,7 @@
                 <div>
                     <a href="#" class="footer-logo">
                         <svg viewBox="0 0 180 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <text x="0" y="22" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="8" fill="#F5F3F0">BiSPOKE</text>
+                            <text x="0" y="22" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="8" fill="#FAF8F5">BiSPOKE</text>
                         </svg>
                     </a>
                     <div class="footer-info">
@@ -1153,14 +1053,6 @@
                         <li><a href="privacy.html">プライバシーポリシー</a></li>
                         <li><a href="tokushoho.html">特定商取引法に基づく表記</a></li>
                     </ul>
-                </div>
-                <div>
-                    <h4 class="footer-heading">Social</h4>
-                    <div class="social-links">
-                        <a href="#" class="social-icon"><i class="ri-instagram-line"></i></a>
-                        <a href="#" class="social-icon"><i class="ri-facebook-fill"></i></a>
-                        <a href="#" class="social-icon"><i class="ri-pinterest-line"></i></a>
-                    </div>
                 </div>
             </div>
             <div class="copyright">
