@@ -46,6 +46,30 @@
       page_type: 'corporate_site',
       brand: 'bispoke'
     });
+
+    // Meta Conversions API (CAPI) client helper
+    window.metaCAPI = function(eventName, customData) {
+      var cookies = document.cookie.split(';').reduce(function(acc, c) {
+        var parts = c.trim().split('=');
+        acc[parts[0]] = parts.slice(1).join('=');
+        return acc;
+      }, {});
+      fetch('/api/meta-capi', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          event_name: eventName,
+          event_time: Math.floor(Date.now() / 1000),
+          event_source_url: window.location.href,
+          user_data: {
+            fbc: cookies._fbc || '',
+            fbp: cookies._fbp || '',
+            client_user_agent: navigator.userAgent
+          },
+          custom_data: customData || {}
+        })
+      }).catch(function() {});
+    };
     </script>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
@@ -1237,6 +1261,9 @@
                         content_name: 'contact_form',
                         content_category: 'corporate'
                     });
+                }
+                if (typeof metaCAPI === 'function') {
+                    metaCAPI('Lead', { content_name: 'contact_form', content_category: 'corporate' });
                 }
                 window.dataLayer = window.dataLayer || [];
                 window.dataLayer.push({
