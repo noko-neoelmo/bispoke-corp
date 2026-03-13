@@ -12,6 +12,66 @@
     <meta property="og:image" content="https://bispoke.co.jp/images/og-image.png">
     <link rel="canonical" href="https://bispoke.co.jp/">
     <link rel="icon" href="favicon.ico">
+
+    <!-- Meta Pixel -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '925486173445456');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=925486173445456&ev=PageView&noscript=1"
+    /></noscript>
+
+    <!-- Data Layer for Ad Tracking -->
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    window.bspkTracking = {
+      service: 'corporate',
+      page: 'hp',
+      brand: 'bispoke',
+      domain: 'bispoke.co.jp',
+      utm: Object.fromEntries(new URLSearchParams(window.location.search))
+    };
+    window.dataLayer.push({
+      event: 'page_metadata',
+      service: 'corporate',
+      page_type: 'corporate_site',
+      brand: 'bispoke'
+    });
+
+    // Meta Conversions API (CAPI) client helper
+    window.metaCAPI = function(eventName, customData) {
+      var cookies = document.cookie.split(';').reduce(function(acc, c) {
+        var parts = c.trim().split('=');
+        acc[parts[0]] = parts.slice(1).join('=');
+        return acc;
+      }, {});
+      fetch('/api/meta-capi', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          event_name: eventName,
+          event_time: Math.floor(Date.now() / 1000),
+          event_source_url: window.location.href,
+          user_data: {
+            fbc: cookies._fbc || '',
+            fbp: cookies._fbp || '',
+            client_user_agent: navigator.userAgent
+          },
+          custom_data: customData || {}
+        })
+      }).catch(function() {});
+    };
+    </script>
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
     <style>
         /* General Reset */
@@ -867,8 +927,8 @@
             "jobTitle": "代表取締役CEO"
         },
         "sameAs": [
-            "https://uzume-remodel.vercel.app",
-            "https://bispoke-resize-lp.vercel.app"
+            "https://uzume-jewelry.jp/remodel",
+            "https://uzume-jewelry.jp/resize"
         ],
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
@@ -879,7 +939,7 @@
                     "itemOffered": {
                         "@type": "Service",
                         "name": "ジュエリーリモデル",
-                        "url": "https://uzume-remodel.vercel.app"
+                        "url": "https://uzume-jewelry.jp/remodel"
                     }
                 },
                 {
@@ -887,7 +947,7 @@
                     "itemOffered": {
                         "@type": "Service",
                         "name": "指輪サイズ直し",
-                        "url": "https://bispoke-resize-lp.vercel.app"
+                        "url": "https://uzume-jewelry.jp/resize"
                     }
                 }
             ]
@@ -914,8 +974,8 @@
                 <li class="nav-dropdown">
                     <a href="services.html" class="nav-link">サービス</a>
                     <ul class="nav-dropdown-menu">
-                        <li><a href="https://uzume-remodel.vercel.app/" target="_blank" rel="noopener noreferrer">ジュエリーリモデル</a></li>
-                        <li><a href="https://bispoke-resize-lp.vercel.app/" target="_blank" rel="noopener noreferrer">指輪サイズ直し</a></li>
+                        <li><a href="https://uzume-jewelry.jp/remodel/" target="_blank" rel="noopener noreferrer">ジュエリーリモデル</a></li>
+                        <li><a href="https://uzume-jewelry.jp/resize/" target="_blank" rel="noopener noreferrer">指輪サイズ直し</a></li>
                     </ul>
                 </li>
                 <li><a href="#mission" class="nav-link">私たちの想い</a></li>
@@ -1172,6 +1232,47 @@
                 document.querySelector('.hamburger').classList.remove('active');
             });
         });
+
+        // ── Ad Tracking: navigation to service pages ──
+        document.querySelectorAll('a[href*="uzume-jewelry.jp"]').forEach(function(el) {
+            el.addEventListener('click', function() {
+                var dest = el.href.indexOf('/remodel') > -1 ? 'remodel' : 'resize';
+                if (typeof fbq === 'function') {
+                    fbq('trackCustom', 'ServiceNavigation', {
+                        destination: dest,
+                        source: 'corporate_site'
+                    });
+                }
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    event: 'service_navigation',
+                    destination_service: dest,
+                    source: 'corporate_site'
+                });
+            });
+        });
+
+        // Contact form submission tracking
+        var form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', function() {
+                if (typeof fbq === 'function') {
+                    fbq('track', 'Lead', {
+                        content_name: 'contact_form',
+                        content_category: 'corporate'
+                    });
+                }
+                if (typeof metaCAPI === 'function') {
+                    metaCAPI('Lead', { content_name: 'contact_form', content_category: 'corporate' });
+                }
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    event: 'form_submit',
+                    form_type: 'contact',
+                    service: 'corporate'
+                });
+            });
+        }
     </script>
 
 </body>
