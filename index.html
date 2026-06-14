@@ -1,1279 +1,216 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>株式会社BiSPOKE | 採用サイト</title>
-    <meta name="description" content="株式会社BiSPOKE 採用サイト。ジュエリーリモデルブランド UZUME（ウズメ）を運営。誰かが大切にしてきたものを、同じように大切にする仲間を募集しています。">
-    <meta property="og:title" content="株式会社BiSPOKE | 採用サイト">
-    <meta property="og:description" content="ジュエリーリモデルブランド UZUME を運営する BiSPOKE の採用情報。三世代先まで語り継がれる感動体験を、一緒につくりませんか。">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://bispoke.co.jp/">
-    <meta property="og:image" content="https://bispoke.co.jp/images/og-image.png">
-    <link rel="canonical" href="https://bispoke.co.jp/">
-    <link rel="icon" href="favicon.ico">
-
-    <!-- Meta Pixel -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '925486173445456');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=925486173445456&ev=PageView&noscript=1"
-    /></noscript>
-
-    <!-- Data Layer for Ad Tracking -->
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    window.bspkTracking = {
-      service: 'corporate',
-      page: 'hp',
-      brand: 'bispoke',
-      domain: 'bispoke.co.jp',
-      utm: Object.fromEntries(new URLSearchParams(window.location.search))
-    };
-    window.dataLayer.push({
-      event: 'page_metadata',
-      service: 'corporate',
-      page_type: 'corporate_site',
-      brand: 'bispoke'
-    });
-
-    // Meta Conversions API (CAPI) client helper
-    window.metaCAPI = function(eventName, customData) {
-      var cookies = document.cookie.split(';').reduce(function(acc, c) {
-        var parts = c.trim().split('=');
-        acc[parts[0]] = parts.slice(1).join('=');
-        return acc;
-      }, {});
-      fetch('/api/meta-capi', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          event_name: eventName,
-          event_time: Math.floor(Date.now() / 1000),
-          event_source_url: window.location.href,
-          user_data: {
-            fbc: cookies._fbc || '',
-            fbp: cookies._fbp || '',
-            client_user_agent: navigator.userAgent
-          },
-          custom_data: customData || {}
-        })
-      }).catch(function() {});
-    };
-    </script>
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
-    <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        :root {
-            --uzume-navy: #1B2A4A;
-            --uzume-muted-blue: #1B3A3A;
-            --uzume-silver: #C0C5C9;
-            --uzume-off-white: #FAF8F5;
-            --uzume-warm-gray: #E8E4E1;
-            --uzume-ink: #3D3D3D;
-            --uzume-brass: #C9A86C;
-        }
-
-        body {
-            font-family: "Helvetica Neue", "Yu Gothic", "游ゴシック", "YuGothic", sans-serif;
-            background-color: var(--uzume-off-white);
-            color: var(--uzume-navy);
-            line-height: 1.8;
-            width: 100%;
-            margin: 0 auto;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: "Helvetica Neue", "Yu Gothic", "游ゴシック", "YuGothic", sans-serif;
-            font-weight: 500;
-        }
-
-        /* Utility Classes */
-        .container {
-            max-width: 1400px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-
-        .section-padding {
-            padding: 120px 0;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px 48px;
-            background-color: var(--uzume-muted-blue);
-            color: var(--uzume-off-white);
-            font-size: 16px;
-            font-weight: 500;
-            text-decoration: none;
-            border-radius: 4px;
-            letter-spacing: 0.05em;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            font-family: "Helvetica Neue", "Yu Gothic", "游ゴシック", "YuGothic", sans-serif;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-        }
-
-        .btn:hover::after {
-            transform: translateX(0);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 1px solid var(--uzume-off-white);
-            color: var(--uzume-off-white);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--uzume-off-white);
-            color: var(--uzume-navy);
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 16px 0;
-            z-index: 1000;
-            background-color: var(--uzume-navy);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(10px);
-        }
-
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .logo {
-            display: inline-flex;
-            align-items: center;
-            text-decoration: none;
-        }
-
-        .logo svg {
-            height: 28px;
-            width: auto;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 48px;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: var(--uzume-off-white);
-            font-size: 14px;
-            letter-spacing: 0.05em;
-            position: relative;
-            padding-bottom: 4px;
-            opacity: 0.85;
-            transition: opacity 0.3s ease;
-        }
-
-        .nav-link:hover {
-            opacity: 1;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background-color: var(--uzume-off-white);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        /* Dropdown */
-        .nav-dropdown {
-            position: relative;
-        }
-
-        .nav-dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            min-width: 220px;
-            background-color: var(--uzume-navy);
-            list-style: none;
-            padding: 12px 0;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(8px);
-            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
-            border-top: 1px solid var(--uzume-brass);
-            margin-top: 4px;
-        }
-
-        .nav-dropdown:hover .nav-dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .nav-dropdown-menu li a {
-            display: block;
-            padding: 10px 24px;
-            color: var(--uzume-off-white);
-            text-decoration: none;
-            font-size: 13px;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .nav-dropdown-menu li a:hover {
-            opacity: 1;
-        }
-
-        .btn-header {
-            padding: 10px 24px;
-            font-size: 14px;
-            background-color: var(--uzume-muted-blue);
-            color: var(--uzume-off-white);
-        }
-
-        /* Hero Section */
-        .hero {
-            position: relative;
-            height: 100vh;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('images/UZUME店舗_夜の外観_ライカ70.png');
-            background-size: cover;
-            background-position: center;
-            z-index: 1;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(27, 42, 74, 0.6) 0%, rgba(27, 42, 74, 0.5) 100%);
-            z-index: 2;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            text-align: center;
-            color: var(--uzume-off-white);
-        }
-
-        .hero-title {
-            font-size: 56px;
-            line-height: 1.3;
-            margin-bottom: 24px;
-            font-weight: 300;
-            letter-spacing: 0.06em;
-            text-shadow: 0 4px 16px rgba(0,0,0,0.2);
-        }
-
-        .hero-subtitle {
-            font-size: 18px;
-            margin-bottom: 48px;
-            letter-spacing: 0.12em;
-            font-weight: 300;
-            opacity: 0.85;
-        }
-
-        /* Mission Section */
-        .mission {
-            background-color: var(--uzume-navy);
-            color: var(--uzume-off-white);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .mission-inner {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 42px;
-            margin-bottom: 60px;
-            letter-spacing: 0.1em;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title.light {
-            color: var(--uzume-off-white);
-        }
-
-        .section-title.dark {
-            color: var(--uzume-navy);
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 2px;
-            background-color: var(--uzume-brass);
-        }
-
-        .mission-text {
-            font-size: 18px;
-            line-height: 2.2;
-            margin-bottom: 48px;
-            font-weight: 300;
-        }
-
-        .mission-concepts {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 48px;
-            margin-top: 80px;
-        }
-
-        .concept-item {
-            text-align: left;
-        }
-
-        .concept-item h3 {
-            font-size: 18px;
-            margin-bottom: 16px;
-            color: var(--uzume-brass);
-            letter-spacing: 0.04em;
-            line-height: 1.6;
-        }
-
-        .concept-item .concept-en {
-            display: block;
-            font-size: 13px;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            letter-spacing: 0.12em;
-            opacity: 0.5;
-            margin-bottom: 8px;
-            font-weight: 400;
-        }
-
-        .concept-item p {
-            font-size: 14px;
-            opacity: 0.75;
-            letter-spacing: 0.02em;
-            line-height: 2;
-        }
-
-        /* Working Environment */
-        .environment {
-            background-color: var(--uzume-off-white);
-        }
-
-        .env-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-        }
-
-        .env-card {
-            background: transparent;
-        }
-
-        .env-image {
-            width: 100%;
-            height: 320px;
-            object-fit: cover;
-            border-radius: 4px;
-            margin-bottom: 32px;
-            transition: transform 0.5s ease;
-        }
-
-        .env-card:hover .env-image {
-            transform: scale(1.02);
-        }
-
-        .env-title {
-            font-size: 24px;
-            margin-bottom: 16px;
-            color: var(--uzume-navy);
-        }
-
-        .env-desc {
-            font-size: 15px;
-            line-height: 1.8;
-            color: #666;
-        }
-
-        /* Recruitment Section */
-        .recruitment {
-            background-color: var(--uzume-off-white);
-        }
-
-        .job-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-        }
-
-        .job-card {
-            background-color: #fff;
-            padding: 48px 40px;
-            border-radius: 4px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-            border-top: 3px solid transparent;
-        }
-
-        .job-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(27, 42, 74, 0.08);
-            border-top: 3px solid var(--uzume-brass);
-        }
-
-        .job-title {
-            font-size: 24px;
-            color: var(--uzume-navy);
-            margin-bottom: 12px;
-        }
-
-        .job-type {
-            display: inline-block;
-            font-size: 13px;
-            color: #888;
-            margin-bottom: 24px;
-            letter-spacing: 0.05em;
-        }
-
-        .job-desc {
-            font-size: 15px;
-            color: #555;
-            margin-bottom: 32px;
-            line-height: 1.8;
-            flex-grow: 1;
-        }
-
-        .job-link {
-            color: var(--uzume-navy);
-            text-decoration: none;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 15px;
-            transition: gap 0.3s ease;
-        }
-
-        .job-link:hover {
-            gap: 12px;
-            color: var(--uzume-brass);
-        }
-
-        /* Company Overview */
-        .company {
-            background-color: var(--uzume-navy);
-            color: var(--uzume-off-white);
-        }
-
-        .company-inner {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .company-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .company-table tr {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .company-table tr:last-child {
-            border-bottom: none;
-        }
-
-        .company-table th {
-            text-align: left;
-            padding: 20px 24px;
-            font-size: 15px;
-            font-weight: 500;
-            color: var(--uzume-brass);
-            width: 180px;
-            vertical-align: top;
-            letter-spacing: 0.04em;
-        }
-
-        .company-table td {
-            padding: 20px 24px;
-            font-size: 15px;
-            line-height: 1.8;
-            color: rgba(250, 248, 245, 0.85);
-        }
-
-        /* Entry Form */
-        .entry {
-            background-color: var(--uzume-navy);
-            padding: 100px 0;
-        }
-
-        .form-container {
-            background-color: var(--uzume-off-white);
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 80px;
-            border-radius: 4px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-        }
-
-        .form-group {
-            margin-bottom: 32px;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--uzume-navy);
-            letter-spacing: 0.05em;
-        }
-
-        .form-input, .form-select, .form-textarea {
-            width: 100%;
-            padding: 16px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-            background-color: var(--uzume-off-white);
-            transition: all 0.3s ease;
-            font-family: "Helvetica Neue", "Yu Gothic", "游ゴシック", "YuGothic", sans-serif;
-        }
-
-        .form-input:focus, .form-select:focus, .form-textarea:focus {
-            outline: none;
-            border-color: var(--uzume-navy);
-            background-color: var(--uzume-off-white);
-        }
-
-        .form-textarea {
-            height: 160px;
-            resize: vertical;
-        }
-
-        .form-footer {
-            text-align: center;
-            margin-top: 48px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--uzume-navy);
-            color: #fff;
-            padding: 80px 0 40px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 60px;
-            margin-bottom: 60px;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            padding-bottom: 60px;
-        }
-
-        .footer-logo {
-            display: inline-block;
-            margin-bottom: 24px;
-            text-decoration: none;
-        }
-
-        .footer-logo svg {
-            height: 24px;
-            width: auto;
-        }
-
-        .footer-info {
-            font-size: 14px;
-            line-height: 1.8;
-            color: var(--uzume-silver);
-        }
-
-        .footer-heading {
-            font-size: 16px;
-            margin-bottom: 24px;
-            color: #fff;
-            font-weight: 500;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: var(--uzume-silver);
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--uzume-brass);
-        }
-
-        .copyright {
-            text-align: center;
-            font-size: 13px;
-            color: #666;
-        }
-
-        /* Decorative Elements */
-        .decor-line {
-            width: 1px;
-            height: 80px;
-            background-color: var(--uzume-brass);
-            margin: 0 auto 40px;
-            display: block;
-            opacity: 0.3;
-        }
-
-        /* Hamburger Menu */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 8px;
-            z-index: 1001;
-        }
-
-        .hamburger span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background-color: var(--uzume-off-white);
-            transition: all 0.3s ease;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .container {
-                padding: 0 24px;
-            }
-
-            .section-padding {
-                padding: 80px 0;
-            }
-
-            .section-title {
-                font-size: 32px;
-                margin-bottom: 48px;
-            }
-
-            .env-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .job-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .hero-title {
-                font-size: 42px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-
-            .nav-menu {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 80%;
-                max-width: 320px;
-                height: 100vh;
-                background-color: var(--uzume-navy);
-                flex-direction: column;
-                padding: 100px 40px 40px;
-                gap: 32px;
-                transition: right 0.3s ease;
-                box-shadow: -4px 0 20px rgba(0, 0, 0, 0.2);
-            }
-
-            .nav-menu.open {
-                right: 0;
-            }
-
-            .nav-dropdown-menu {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                padding: 8px 0 0 16px;
-                border-top: none;
-                margin-top: 0;
-            }
-
-            .section-padding {
-                padding: 60px 0;
-            }
-
-            .section-title {
-                font-size: 26px;
-                margin-bottom: 40px;
-            }
-
-            .hero-title {
-                font-size: 28px;
-                padding: 0 20px;
-            }
-
-            .hero-subtitle {
-                font-size: 15px;
-                padding: 0 20px;
-            }
-
-            .mission-inner {
-                max-width: 100%;
-            }
-
-            .mission-text {
-                font-size: 15px;
-                line-height: 2;
-            }
-
-            .mission-concepts {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                margin-top: 48px;
-            }
-
-            .env-grid {
-                grid-template-columns: 1fr;
-                gap: 48px;
-            }
-
-            .env-grid[style] {
-                margin-top: 48px !important;
-            }
-
-            .env-image {
-                height: 240px;
-            }
-
-            .job-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .job-grid[style] {
-                margin-top: 48px !important;
-            }
-
-            .job-card {
-                padding: 32px 24px;
-            }
-
-            .entry {
-                padding: 60px 0;
-            }
-
-            .form-container {
-                padding: 40px 24px;
-            }
-
-            .form-grid[style] {
-                grid-template-columns: 1fr !important;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .btn {
-                padding: 14px 36px;
-                font-size: 15px;
-            }
-
-            .company-table th {
-                display: block;
-                width: 100%;
-                padding: 16px 16px 4px;
-            }
-
-            .company-table td {
-                display: block;
-                padding: 4px 16px 16px;
-            }
-        }
-
-    </style>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "株式会社BiSPOKE",
-        "alternateName": "BiSPOKE Inc.",
-        "url": "https://bispoke.co.jp",
-        "logo": "https://bispoke.co.jp/images/og-image.png",
-        "description": "ジュエリーリモデルブランド UZUME（ウズメ）を運営。眠っていたジュエリーに新しい意味を与える場所。",
-        "address": {
-            "@type": "PostalAddress",
-            "postalCode": "107-0062",
-            "addressRegion": "東京都",
-            "addressLocality": "港区",
-            "streetAddress": "南青山2丁目5-17 ポーラ青山ビルディング5階 Overlap",
-            "addressCountry": "JP"
-        },
-        "email": "info@bispoke.co.jp",
-        "brand": {
-            "@type": "Brand",
-            "name": "UZUME",
-            "alternateName": "ウズメ"
-        },
-        "founder": {
-            "@type": "Person",
-            "name": "土屋沙也加",
-            "jobTitle": "代表取締役CEO"
-        },
-        "sameAs": [
-            "https://uzume-jewelry.jp/remodel",
-            "https://uzume-jewelry.jp/resize"
-        ],
-        "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "UZUMEのサービス",
-            "itemListElement": [
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "ジュエリーリモデル",
-                        "url": "https://uzume-jewelry.jp/remodel"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "指輪サイズ直し",
-                        "url": "https://uzume-jewelry.jp/resize"
-                    }
-                }
-            ]
-        }
-    }
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>株式会社BiSPOKE — 三世代先まで語り継がれる感動体験をつくる</title>
+<meta name="description" content="株式会社BiSPOKEの採用サイト。ミッションは「三世代先まで語り継がれる感動体験をつくる」。ジュエリーリモデルブランド RETOLD TOKYO を企画・運営。東京・南青山。ジュエリー職人・店舗スタッフ・カスタマーサポート募集中。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="corp.css">
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '925486173445456');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=925486173445456&ev=PageView&noscript=1"/></noscript>
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="header-inner">
-            <a href="index.html" class="logo">
-                <svg viewBox="0 0 180 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <text x="0" y="22" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="8" fill="#FAF8F5">BiSPOKE</text>
-                </svg>
-            </a>
-            <button class="hamburger" aria-label="メニュー" onclick="this.classList.toggle('active'); document.querySelector('.nav-menu').classList.toggle('open');">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu">
-                <li class="nav-dropdown">
-                    <a href="services.html" class="nav-link">サービス</a>
-                    <ul class="nav-dropdown-menu">
-                        <li><a href="https://uzume-jewelry.jp/remodel/" target="_blank" rel="noopener noreferrer">ジュエリーリモデル</a></li>
-                        <li><a href="https://uzume-jewelry.jp/resize/" target="_blank" rel="noopener noreferrer">指輪サイズ直し</a></li>
-                    </ul>
-                </li>
-                <li><a href="#mission" class="nav-link">私たちの想い</a></li>
-                <li><a href="#environment" class="nav-link">働く環境</a></li>
-                <li><a href="#jobs" class="nav-link">募集職種</a></li>
-                <li><a href="#company" class="nav-link">会社概要</a></li>
-                <li><a href="#contact" class="btn btn-header">CONTACT</a></li>
-            </ul>
-        </div>
-    </header>
+<header class="hd">
+  <a href="/" class="hd-logo">BiSPOKE<span style="font-size:0.5em;vertical-align:super">®</span></a>
+  <nav class="hd-nav">
+    <a href="#careers">Careers</a>
+    <a href="#values">Values</a>
+    <a href="/services">Services</a>
+    <a href="#company">Company</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">誰かが大切にしてきたものを、<br>同じように大切にする</h1>
-            <a href="#jobs" class="btn">募集職種を見る</a>
-        </div>
-    </section>
+<section class="hero" style="background:#fbfaf7;align-items:center">
+  <div class="wrap" style="width:100%;padding:0 24px">
+    <h1 class="conjure serif" style="font-size:clamp(34px,6.4vw,86px);font-weight:600;line-height:1.35;letter-spacing:0.02em">
+      三世代先まで<br>
+      語り継がれる<br>
+      <span class="text-hollow">感動体験</span>を、つくる<span class="sparkle">。</span>
+    </h1>
+    <p class="conjure" style="margin-top:38px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.3em;color:var(--mute)">株式会社BiSPOKE / RETOLD TOKYO</p>
+  </div>
+  <a class="badge-wrap" href="#careers" aria-label="採用情報へ">
+    <svg class="badge-spin" viewBox="0 0 168 168">
+      <defs><path id="cir" d="M84,84 m-64,0 a64,64 0 1,1 128,0 a64,64 0 1,1 -128,0"/></defs>
+      <text style="font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:0.34em;text-transform:uppercase;fill:#0c0c0c">
+        <textPath href="#cir" textLength="400">We are hiring ✦ We are hiring ✦ </textPath>
+      </text>
+    </svg>
+    <span class="badge-center float">✦</span>
+  </a>
+  <div class="drift" aria-hidden="true" style="position:absolute;bottom:0;left:0;padding-bottom:2vh">
+    <div class="drift-track">
+      <span class="display-mega hero-outline-mega" style="padding-right:0.5em">BiSPOKE&nbsp;—&nbsp;Retold&nbsp;Tokyo&nbsp;—&nbsp;</span>
+      <span class="display-mega hero-outline-mega" style="padding-right:0.5em">BiSPOKE&nbsp;—&nbsp;Retold&nbsp;Tokyo&nbsp;—&nbsp;</span>
+    </div>
+  </div>
+</section>
 
-    <!-- Mission Section -->
-    <section id="mission" class="mission section-padding">
-        <div class="container mission-inner">
-            <span class="decor-line" style="background-color: rgba(255,255,255,0.15);"></span>
-            <h2 class="section-title light">私たちの想い</h2>
-            <div class="mission-text">
-                <p>
-                    一度手に入れた時だけでなく、受け継がれる時、そしてその次へ——<br>
-                    人生で何度も語り継がれる体験をつくる。それがBiSPOKEの原点です。<br><br>
-                    私たちのブランド UZUME（ウズメ）は、<br>
-                    天岩戸の前で踊り、人々に気づきをもたらした女神の名を冠しています。<br>
-                    見えなくなった愛を、もう一度見えるかたちにする。<br>
-                    眠っていたジュエリーに「今のあなた」のための新しい意味を与える場所です。
-                </p>
-            </div>
-        </div>
-    </section>
 
-    <!-- Working Environment -->
-    <section id="environment" class="environment section-padding">
-        <div class="container">
-            <div style="text-align: center;">
-                <h2 class="section-title dark">BiSPOKEで働くということ</h2>
-            </div>
+<section class="section" id="about">
+  <div class="wrap" style="display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center">
+    <div>
+      <p class="mono-label reveal" style="margin-bottom:30px">(01) What we do <span class="sparkle">✦</span></p>
+      <h2 class="reveal serif" style="font-size:clamp(26px,3.6vw,44px);font-weight:600;line-height:1.5">眠っていたジュエリーに、<br>新しい意味という魔法を。</h2>
+      <div class="reveal serif" style="margin-top:32px;font-size:15px;line-height:2.2;color:#3a372f">
+        <p>「いつか使える日が来たら」と、大切にしまってあるジュエリーはありませんか。時代が変わり、デザインが古くなったとしても、そこに宿る「想い」まで色褪せることはありません。</p>
+        <p style="margin-top:1.4em">BiSPOKEは、ジュエリーリモデルブランド「RETOLD TOKYO」を運営し、眠っていたジュエリーを「今のあなた」のための新しいかたちへ仕立て直しています。</p>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="tilt" style="--r:2.5deg;overflow:hidden">
+        <video autoplay muted loop playsinline preload="metadata" style="width:100%;display:block" poster="images/setting.png">
+          <source src="images/atelier.webm" type="video/webm">
+          <source src="images/atelier.mp4" type="video/mp4">
+        </video>
+      </div>
+      <p style="margin-top:14px;font-family:var(--font-mono);font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--mute);text-align:right">Atelier — Hands at work</p>
+    </div>
+  </div>
+</section>
 
-            <div class="env-grid" style="margin-top: 80px;">
-                <div class="env-card">
-                    <img src="images/UZUME店舗_職人エリア_俯瞰アングル_ライカ70.png" alt="職人の手仕事" class="env-image">
-                    <h3 class="env-title">想いを聴いてから、手を動かす</h3>
-                    <p class="env-desc">
-                        お客様から預かるのは、貴金属ではなく「想い」。石と地金だけ見て即査定するようなことはしない。想いを聴き、物語を受け取ってから、はじめて手を動かします。
-                    </p>
-                </div>
-                <div class="env-card">
-                    <img src="images/UZUME店舗_夜の外観_ライカ70.png" alt="静かな反骨" class="env-image">
-                    <h3 class="env-title">業界の「当たり前」に、静かに異を唱える</h3>
-                    <p class="env-desc">
-                        セールで煽らない。スペックで競わない。不透明な業界慣習に同調しない。私たちは独自の審美眼と哲学で、自分たちの居場所をつくります。
-                    </p>
-                </div>
-                <div class="env-card">
-                    <img src="images/UZUME店舗_金継ぎテーブル_ライカ70.png" alt="チームの空気" class="env-image">
-                    <h3 class="env-title">満ちてから、動く</h3>
-                    <p class="env-desc">
-                        自己犠牲を美徳にしない。疲れたら休む。自分が満たされることが、感性を守り、最高の仕事につながると信じています。先に自分を大切にできる環境です。
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="section" id="values" style="padding-top:40px">
+  <div class="wrap">
+    <p class="mono-label reveal" style="margin-bottom:30px">(02) Values — 私たちが大切にしていること <span class="sparkle">✦</span></p>
+    <div class="grid3 reveal" style="background:none;border:none;gap:24px">
+      <div class="vcard">
+        <p class="display-md" style="font-size:clamp(40px,5vw,64px);color:var(--rose)">01</p>
+        <h3 class="serif" style="font-size:21px;font-weight:600;margin:16px 0 12px">想いを聴いてから、<br>手を動かす。</h3>
+        <p style="font-size:13.5px;color:#55503f;line-height:2">査定ではなく、対話。販売ではなく、相談。お客様の物語を受け取ることから、すべての仕事が始まります。</p>
+      </div>
+      <div class="vcard" style="margin-top:28px">
+        <p class="display-md" style="font-size:clamp(40px,5vw,64px);color:var(--rose)">02</p>
+        <h3 class="serif" style="font-size:21px;font-weight:600;margin:16px 0 12px">満ちてから、動く。</h3>
+        <p style="font-size:13.5px;color:#55503f;line-height:2">自己犠牲を美徳にしない。疲れたら休む。自分が満たされていることが感性を守り、最高の仕事につながると信じています。</p>
+      </div>
+      <div class="vcard" style="margin-top:56px">
+        <p class="display-md" style="font-size:clamp(40px,5vw,64px);color:var(--rose)">03</p>
+        <h3 class="serif" style="font-size:21px;font-weight:600;margin:16px 0 12px">三世代先を、見る。</h3>
+        <p style="font-size:13.5px;color:#55503f;line-height:2">目先の売上ではなく、孫の代まで語り継がれる体験をつくれたか。私たちのものさしは、いつもそこにあります。</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Job Descriptions -->
-    <section id="jobs" class="recruitment section-padding">
-        <div class="container">
-            <div style="text-align: center;">
-                <h2 class="section-title dark">募集職種</h2>
-            </div>
+<section class="section" id="careers" style="background:#fff;border-top:1px solid rgba(12,12,12,0.1)">
+  <div class="wrap">
+    <p class="mono-label reveal" style="margin-bottom:30px">(03) Careers — 募集職種 <span class="sparkle">✦</span></p>
+    <h2 class="display-big reveal">Work<br><span class="text-hollow">with us.</span></h2>
+    <p class="reveal serif" style="max-width:520px;margin-top:36px;font-size:15px">スキルだけでなく、世界観への共感を大切に採用しています。ジュエリー業界の経験よりも、人の想いに寄り添えることを。</p>
+    <div class="grid3 reveal" style="background:none;border:none;gap:24px;margin-top:48px">
+      <a class="vcard" href="/jobs/craftsman" style="display:flex;flex-direction:column;gap:12px">
+        <p class="mono-label">01 / 正社員・契約社員</p>
+        <p class="serif" style="font-size:24px;font-weight:600">ジュエリー職人</p>
+        <p style="font-size:13px;color:#55503f;flex:1;line-height:2">想いが宿るジュエリーを、新たな形へと繋ぎ直す。</p>
+        <span class="mono-label" style="color:var(--rose)">Read →</span>
+      </a>
+      <a class="vcard" href="/jobs/store-staff" style="display:flex;flex-direction:column;gap:12px">
+        <p class="mono-label">02 / 正社員・アルバイト</p>
+        <p class="serif" style="font-size:24px;font-weight:600">店舗スタッフ</p>
+        <p style="font-size:13px;color:#55503f;flex:1;line-height:2">お客様の想いを聴き、最適なリモデルへと繋ぐ。</p>
+        <span class="mono-label" style="color:var(--rose)">Read →</span>
+      </a>
+      <a class="vcard" href="/jobs/customer-support" style="display:flex;flex-direction:column;gap:12px">
+        <p class="mono-label">03 / 正社員・アルバイト</p>
+        <p class="serif" style="font-size:24px;font-weight:600">カスタマーサポート</p>
+        <p style="font-size:13px;color:#55503f;flex:1;line-height:2">画面越しに、想いを受け取る。</p>
+        <span class="mono-label" style="color:var(--rose)">Read →</span>
+      </a>
+    </div>
+  </div>
+</section>
 
-            <div class="job-grid" style="margin-top: 80px;">
-                <!-- Job 1 -->
-                <div class="job-card">
-                    <div>
-                        <h3 class="job-title">ジュエリー職人</h3>
-                        <span class="job-type">正社員 / 契約社員</span>
-                        <p class="job-desc">
-                            リモデル・リサイズを中心としたジュエリー加工業務全般。お客様の想いが宿るジュエリーを預かり、新たな形へと繋ぎ直す仕事です。繊細な手仕事が得意な方を歓迎します。
-                        </p>
-                    </div>
-                    <a href="jobs/craftsman.html" class="job-link">詳しく見る <i class="ri-arrow-right-line"></i></a>
-                </div>
+<section class="section" id="brand">
+  <div class="wrap">
+    <p class="mono-label reveal" style="margin-bottom:24px">(04) Our Brand — RETOLD TOKYO <span class="sparkle">✦</span></p>
+    <div class="reveal">
+      <a class="row" href="https://retold.tokyo" target="_blank" rel="noopener">
+        <span class="row-no">01</span><span class="display-md">Remodel</span>
+        <span class="row-note">ジュエリーリフォーム<small>眠る石と地金を、新しい設計へ</small></span>
+      </a>
+      <a class="row" href="https://retold.tokyo/resize" target="_blank" rel="noopener">
+        <span class="row-no">02</span><span class="display-md">Resize</span>
+        <span class="row-note">指輪サイズ直し<small>5,500円(税込)〜 / 全国配送完結</small></span>
+      </a>
+      <a class="row" href="https://retold.tokyo/bridal" target="_blank" rel="noopener">
+        <span class="row-no">03</span><span class="display-md">Bridal</span>
+        <span class="row-note">ブライダルリフォーム<small>受け継いだ石を、ふたりの誓いに</small></span>
+      </a>
+    </div>
+    <p class="reveal" style="margin-top:26px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.2em"><a href="https://retold.tokyo" target="_blank" rel="noopener" style="border-bottom:1px solid currentColor">retold.tokyo →</a></p>
+  </div>
+</section>
 
-                <!-- Job 2 -->
-                <div class="job-card">
-                    <div>
-                        <h3 class="job-title">店舗スタッフ</h3>
-                        <span class="job-type">正社員 / アルバイト</span>
-                        <p class="job-desc">
-                            店舗でのお客様対応・ジュエリーのご相談受付。お客様の想いを丁寧に汲み取り、最適なリモデルの提案へと繋ぐ役割です。接客経験がある方を歓迎します。
-                        </p>
-                    </div>
-                    <a href="jobs/store-staff.html" class="job-link">詳しく見る <i class="ri-arrow-right-line"></i></a>
-                </div>
+<section class="section" id="company" style="background:#fff;border-top:1px solid rgba(12,12,12,0.1)">
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 1.4fr;gap:48px">
+    <div>
+      <p class="mono-label reveal" style="margin-bottom:30px">(05) Company <span class="sparkle">✦</span></p>
+      <h2 class="display-big reveal" style="font-size:clamp(36px,6vw,84px)">会社<span class="text-hollow">概要</span></h2>
+    </div>
+    <table class="ctable reveal" style="--line:rgba(12,12,12,0.12)">
+      <tr><th>商号</th><td style="border-color:var(--line)">株式会社BiSPOKE（ビスポーク）</td></tr>
+      <tr><th style="border-color:var(--line)">代表者</th><td style="border-color:var(--line)">代表取締役CEO 土屋沙也加</td></tr>
+      <tr><th style="border-color:var(--line)">所在地</th><td style="border-color:var(--line)">〒107-0062<br>東京都港区南青山2丁目5-17 ポーラ青山ビルディング5階 Overlap</td></tr>
+      <tr><th style="border-color:var(--line)">事業内容</th><td style="border-color:var(--line)">ジュエリーリモデル事業（RETOLD TOKYOブランドの企画・運営）</td></tr>
+      <tr><th style="border-color:var(--line)">ミッション</th><td style="border-color:var(--line)">三世代先まで語り継がれる感動体験をつくる</td></tr>
+      <tr><th style="border-color:var(--line)">ブランド</th><td style="border-color:var(--line)">RETOLD TOKYO（リトールド トーキョー）<br><span style="font-family:var(--font-mono);font-size:11px;opacity:0.6">retold.tokyo</span></td></tr>
+      <tr><th style="border-color:var(--line)">メール</th><td style="border-color:var(--line)">info@bispoke.co.jp</td></tr>
+      <tr><th style="border-color:var(--line)">電話番号</th><td style="border-color:var(--line)">03-6820-3026</td></tr>
+    </table>
+  </div>
+</section>
 
-                <!-- Job 3 -->
-                <div class="job-card">
-                    <div>
-                        <h3 class="job-title">カスタマーサポート</h3>
-                        <span class="job-type">正社員 / アルバイト</span>
-                        <p class="job-desc">
-                            オンラインでのお客様対応。ジュエリーに込められた想いを汲み取り、職人へと繋ぐ架け橋となる役割です。丁寧なコミュニケーションを大切にできる方を歓迎します。
-                        </p>
-                    </div>
-                    <a href="jobs/customer-support.html" class="job-link">詳しく見る <i class="ri-arrow-right-line"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="section" id="contact">
+  <div class="wrap" style="text-align:center">
+    <p class="mono-label reveal" style="margin-bottom:30px">(06) Contact <span class="sparkle">✦</span></p>
+    <h2 class="display-big reveal">Tell us<br><span class="text-hollow">your story.</span></h2>
+    <p class="reveal serif" style="max-width:480px;margin:36px auto 44px;font-size:15px">採用に関するご質問・カジュアル面談のご希望など、どんなことでもお気軽にどうぞ。</p>
+    <p class="reveal">
+      <a class="btn" id="cta-mail" href="mailto:info@bispoke.co.jp?subject=%E6%8E%A1%E7%94%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">採用について相談する →</a>
+    </p>
+    <p class="reveal" style="margin-top:22px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.2em"><a href="mailto:info@bispoke.co.jp" style="border-bottom:1px solid currentColor;color:var(--mute)">その他のお問い合わせ</a></p>
+    <p class="reveal" style="margin-top:20px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.2em;color:var(--mute)">Tel. 03-6820-3026（10:00–19:00）</p>
+  </div>
+</section>
 
-    <!-- Company Overview -->
-    <section id="company" class="company section-padding">
-        <div class="container">
-            <div class="company-inner">
-                <div style="text-align: center;">
-                    <h2 class="section-title light">会社概要</h2>
-                </div>
+<footer class="ft grain">
+  <div class="ft-top">
+    <div class="mono-label" style="line-height:2.2">BiSPOKE Inc.<br>Minami-Aoyama, Tokyo — Japan</div>
+    <nav class="ft-links">
+      <a href="/services">サービス</a>
+      <a href="https://retold.tokyo" target="_blank" rel="noopener">RETOLD TOKYO</a>
+      <a href="/privacy">プライバシーポリシー</a>
+      <a href="/tokushoho">特定商取引法に基づく表記</a>
+    </nav>
+  </div>
+  <p class="ft-mega" aria-hidden="true">BiSPOKE</p>
+  <p class="ft-copy">© 2026 BiSPOKE Inc. — 三世代先まで語り継がれる感動体験をつくる。</p>
+</footer>
 
-                <table class="company-table" style="margin-top: 60px;">
-                    <tr>
-                        <th>商号</th>
-                        <td>株式会社BiSPOKE（ビスポーク）</td>
-                    </tr>
-                    <tr>
-                        <th>代表者</th>
-                        <td>代表取締役CEO 土屋沙也加</td>
-                    </tr>
-                    <tr>
-                        <th>所在地</th>
-                        <td>〒107-0062<br>東京都港区南青山2丁目5-17 ポーラ青山ビルディング5階 Overlap</td>
-                    </tr>
-                    <tr>
-                        <th>事業内容</th>
-                        <td>ジュエリーリモデル事業（UZUMEブランドの企画・運営）</td>
-                    </tr>
-                    <tr>
-                        <th>ミッション</th>
-                        <td>三世代先まで語り継がれる感動体験をつくる</td>
-                    </tr>
-                    <tr>
-                        <th>ブランド</th>
-                        <td>UZUME（ウズメ）</td>
-                    </tr>
-                    <tr>
-                        <th>メール</th>
-                        <td>info@bispoke.co.jp</td>
-                    </tr>
-                    <tr>
-                        <th>電話番号</th>
-                        <td>03-6820-3026</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Form -->
-    <section id="contact" class="entry">
-        <div class="container">
-            <div class="form-container">
-                <div style="text-align: center; margin-bottom: 40px;">
-                    <h2 class="section-title dark" style="margin-bottom: 10px;">CONTACT</h2>
-                    <p style="color: #666;">採用に関するご質問、その他お問い合わせはこちらからお気軽にどうぞ。</p>
-                </div>
-
-                <form>
-                    <div class="form-group">
-                        <label class="form-label">お名前</label>
-                        <input type="text" class="form-input" placeholder="例：山田 太郎">
-                    </div>
-
-                    <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
-                        <div class="form-group">
-                            <label class="form-label">メールアドレス</label>
-                            <input type="email" class="form-input" placeholder="example@example.com">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">電話番号（任意）</label>
-                            <input type="tel" class="form-input" placeholder="090-1234-5678">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">お問い合わせ種別</label>
-                        <select class="form-select">
-                            <option value="">選択してください</option>
-                            <option value="recruit">採用について</option>
-                            <option value="service">サービスについて</option>
-                            <option value="media">取材・メディア掲載について</option>
-                            <option value="other">その他</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">メッセージ</label>
-                        <textarea class="form-textarea" placeholder="ご自由にご記入ください"></textarea>
-                    </div>
-
-                    <div class="form-footer">
-                        <button type="submit" class="btn" style="width: 240px;">相談する</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <a href="index.html" class="footer-logo">
-                        <svg viewBox="0 0 180 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <text x="0" y="22" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="8" fill="#FAF8F5">BiSPOKE</text>
-                        </svg>
-                    </a>
-                    <div class="footer-info">
-                        〒107-0062<br>
-                        東京都港区南青山2丁目5-17<br>
-                        ポーラ青山ビルディング5階 Overlap<br>
-                        Mail: info@bispoke.co.jp
-                    </div>
-                </div>
-                <div>
-                    <h4 class="footer-heading">Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="services.html">サービス</a></li>
-                        <li><a href="#jobs">募集職種</a></li>
-                        <li><a href="#contact">お問い合わせ</a></li>
-                        <li><a href="privacy.html">プライバシーポリシー</a></li>
-                        <li><a href="tokushoho.html">特定商取引法に基づく表記</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                &copy; 2025 BiSPOKE Inc. All Rights Reserved.
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        document.querySelectorAll('.nav-menu a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                document.querySelector('.nav-menu').classList.remove('open');
-                document.querySelector('.hamburger').classList.remove('active');
-            });
-        });
-
-        // ── Ad Tracking: navigation to service pages ──
-        document.querySelectorAll('a[href*="uzume-jewelry.jp"]').forEach(function(el) {
-            el.addEventListener('click', function() {
-                var dest = el.href.indexOf('/remodel') > -1 ? 'remodel' : 'resize';
-                if (typeof fbq === 'function') {
-                    fbq('trackCustom', 'ServiceNavigation', {
-                        destination: dest,
-                        source: 'corporate_site'
-                    });
-                }
-                window.dataLayer = window.dataLayer || [];
-                window.dataLayer.push({
-                    event: 'service_navigation',
-                    destination_service: dest,
-                    source: 'corporate_site'
-                });
-            });
-        });
-
-        // Contact form submission tracking
-        var form = document.querySelector('form');
-        if (form) {
-            form.addEventListener('submit', function() {
-                if (typeof fbq === 'function') {
-                    fbq('track', 'Lead', {
-                        content_name: 'contact_form',
-                        content_category: 'corporate'
-                    });
-                }
-                if (typeof metaCAPI === 'function') {
-                    metaCAPI('Lead', { content_name: 'contact_form', content_category: 'corporate' });
-                }
-                window.dataLayer = window.dataLayer || [];
-                window.dataLayer.push({
-                    event: 'form_submit',
-                    form_type: 'contact',
-                    service: 'corporate'
-                });
-            });
-        }
-    </script>
-
+<script>
+const io = new IntersectionObserver((es) => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal, .conjure').forEach(el => io.observe(el));
+document.getElementById('cta-mail').addEventListener('click', function() {
+  if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'corp_contact_recruit' });
+});
+</script>
 </body>
 </html>

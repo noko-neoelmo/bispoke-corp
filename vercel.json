@@ -7,21 +7,22 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
       ]
     }
   ],
   "rewrites": [
-    {
-      "source": "/remodel",
-      "destination": "https://uzume-remodel.vercel.app/"
-    },
-    {
-      "source": "/remodel/:path*",
-      "destination": "https://uzume-remodel.vercel.app/:path*"
-    },
     {
       "source": "/resize",
       "destination": "https://bispoke-resize-lp.vercel.app/"
@@ -29,6 +30,18 @@
     {
       "source": "/resize/:path*",
       "destination": "https://bispoke-resize-lp.vercel.app/:path*"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/remodel",
+      "destination": "https://retold.tokyo",
+      "permanent": false
+    },
+    {
+      "source": "/remodel/:path*",
+      "destination": "https://retold.tokyo",
+      "permanent": false
     }
   ]
 }

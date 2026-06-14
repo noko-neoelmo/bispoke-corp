@@ -1,328 +1,67 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ジュエリー職人 募集要項 | 株式会社BiSPOKE</title>
-    <meta name="description" content="株式会社BiSPOKE ジュエリー職人の募集要項。リモデル・リサイズを中心としたジュエリー加工業務。お客様の想いが宿るジュエリーを新たな形へと繋ぎ直す仕事です。">
-    <meta property="og:title" content="ジュエリー職人 募集要項 | 株式会社BiSPOKE">
-    <meta property="og:description" content="リモデル・リサイズを中心としたジュエリー加工業務。お客様の想いが宿るジュエリーを新たな形へと繋ぎ直す仕事です。">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://bispoke.co.jp/jobs/craftsman.html">
-    <link rel="canonical" href="https://bispoke.co.jp/jobs/craftsman.html">
-    <link rel="icon" href="../favicon.ico">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        :root {
-            --uzume-navy: #1B2A4A;
-            --uzume-muted-blue: #1B3A3A;
-            --uzume-silver: #C0C5C9;
-            --uzume-off-white: #FAF8F5;
-            --uzume-warm-gray: #E8E4E1;
-            --uzume-ink: #3D3D3D;
-            --uzume-brass: #C9A86C;
-        }
-
-        body {
-            font-family: "Helvetica Neue", "Yu Gothic", "游ゴシック", "YuGothic", sans-serif;
-            background-color: var(--uzume-off-white);
-            color: var(--uzume-navy);
-            line-height: 1.8;
-        }
-
-        header {
-            background-color: var(--uzume-navy);
-            padding: 20px 0;
-        }
-
-        .header-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            color: var(--uzume-off-white);
-            text-decoration: none;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: 8px;
-        }
-
-        .back-link {
-            color: var(--uzume-off-white);
-            text-decoration: none;
-            font-size: 14px;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-        }
-
-        .back-link:hover {
-            opacity: 1;
-        }
-
-        .hero-banner {
-            background-color: var(--uzume-navy);
-            padding: 80px 40px 60px;
-            text-align: center;
-            color: var(--uzume-off-white);
-        }
-
-        .hero-banner .job-type-label {
-            display: inline-block;
-            font-size: 13px;
-            letter-spacing: 0.08em;
-            color: var(--uzume-brass);
-            margin-bottom: 16px;
-        }
-
-        .hero-banner h1 {
-            font-size: 36px;
-            font-weight: 300;
-            letter-spacing: 0.06em;
-            margin-bottom: 16px;
-        }
-
-        .hero-banner .subtitle {
-            font-size: 16px;
-            opacity: 0.75;
-            font-weight: 300;
-        }
-
-        .content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 80px 40px 120px;
-        }
-
-        .section-block {
-            margin-bottom: 64px;
-        }
-
-        .section-block h2 {
-            font-size: 22px;
-            font-weight: 500;
-            margin-bottom: 24px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid var(--uzume-brass);
-            letter-spacing: 0.04em;
-        }
-
-        .section-block p {
-            font-size: 15px;
-            line-height: 2;
-            color: #444;
-        }
-
-        .detail-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .detail-table tr {
-            border-bottom: 1px solid rgba(27, 42, 74, 0.1);
-        }
-
-        .detail-table th {
-            text-align: left;
-            padding: 20px 24px;
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--uzume-navy);
-            width: 180px;
-            vertical-align: top;
-            background-color: rgba(27, 42, 74, 0.03);
-        }
-
-        .detail-table td {
-            padding: 20px 24px;
-            font-size: 15px;
-            line-height: 1.8;
-            color: #444;
-        }
-
-        .cta-area {
-            text-align: center;
-            padding: 60px 0;
-            border-top: 1px solid rgba(27, 42, 74, 0.1);
-        }
-
-        .cta-area p {
-            font-size: 15px;
-            color: #666;
-            margin-bottom: 24px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px 48px;
-            background-color: var(--uzume-muted-blue);
-            color: var(--uzume-off-white);
-            font-size: 16px;
-            font-weight: 500;
-            text-decoration: none;
-            border-radius: 4px;
-            letter-spacing: 0.05em;
-            transition: all 0.3s ease;
-            font-family: "Helvetica Neue", "Yu Gothic", "游ゴシック", "YuGothic", sans-serif;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            opacity: 0.85;
-        }
-
-        .btn-back {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--uzume-navy);
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 500;
-            margin-top: 24px;
-            transition: gap 0.3s ease;
-        }
-
-        .btn-back:hover {
-            gap: 12px;
-            color: var(--uzume-brass);
-        }
-
-        footer {
-            background-color: var(--uzume-navy);
-            color: var(--uzume-silver);
-            text-align: center;
-            padding: 40px;
-            font-size: 13px;
-        }
-
-        @media (max-width: 768px) {
-            .hero-banner {
-                padding: 60px 24px 40px;
-            }
-
-            .hero-banner h1 {
-                font-size: 26px;
-            }
-
-            .content {
-                padding: 60px 24px 80px;
-            }
-
-            .header-inner {
-                padding: 0 24px;
-            }
-
-            .detail-table th,
-            .detail-table td {
-                display: block;
-                width: 100%;
-                padding: 12px 16px;
-            }
-
-            .detail-table th {
-                padding-bottom: 4px;
-            }
-
-            .detail-table td {
-                padding-top: 4px;
-                padding-bottom: 20px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ジュエリー職人 募集要項 | 株式会社BiSPOKE</title>
+<meta name="description" content="株式会社BiSPOKE（RETOLD TOKYO）のジュエリー職人募集要項。想いが宿るジュエリーを、新たな形へと繋ぎ直す。東京・南青山。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../corp.css">
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '925486173445456');
+fbq('track', 'PageView');
+</script>
 </head>
 <body>
+<header class="hd">
+  <a href="/" class="hd-logo">BiSPOKE<span style="font-size:0.5em;vertical-align:super">®</span></a>
+  <nav class="hd-nav"><a href="/services">Services</a><a href="/#careers">Careers</a><a href="/#company">Company</a><a href="/#contact">Contact</a></nav>
+</header>
 
-    <header>
-        <div class="header-inner">
-            <a href="../index.html" class="logo">BiSPOKE</a>
-            <a href="../index.html#jobs" class="back-link">募集職種一覧に戻る</a>
-        </div>
-    </header>
+<section class="job-hero" style="background:#fff;border-bottom:1px solid rgba(12,12,12,0.1)">
+  <div class="wrap">
+    <p class="mono-label" style="margin-bottom:24px">Careers / 01 — 正社員 / 契約社員</p>
+    <h1 class="display-big">Craftsman<span style="color:var(--rose)">.</span></h1>
+    <p style="margin-top:18px;font-size:13px;letter-spacing:0.3em">ジュエリー職人</p>
+    <p class="serif" style="max-width:520px;margin-top:32px;font-size:17px;opacity:0.9">想いが宿るジュエリーを、新たな形へと繋ぎ直す</p>
+  </div>
+</section>
 
-    <div class="hero-banner">
-        <span class="job-type-label">正社員 / 契約社員</span>
-        <h1>ジュエリー職人</h1>
-        <p class="subtitle">想いが宿るジュエリーを、新たな形へと繋ぎ直す</p>
+<section class="section">
+  <div class="wrap" style="max-width:760px">
+    <p class="mono-label" style="margin-bottom:8px">この仕事について</p>
+    <div class="serif" style="font-size:15px"><p style="margin-top:1.4em">お客様から預かるのは、貴金属ではなく「想い」です。</p><p style="margin-top:1.4em">お母様から譲り受けた指輪、大切な人が必死に働いて手に入れたネックレス——そこに宿る物語を受け取り、「今のあなた」のための新しい形へと仕立て直す。それがBiSPOKEのジュエリー職人の仕事です。</p><p style="margin-top:1.4em">リモデル・リサイズを中心としたジュエリー加工業務全般を担当していただきます。石外しから新枠へのセッティングまで、一貫して携わることができます。スペックや効率だけを追い求めるのではなく、一つひとつの仕事に丁寧に向き合える方を歓迎します。</p></div>
+    <p class="mono-label" style="margin:72px 0 20px">募集要項</p>
+    <dl class="dl-spec"><dt>雇用形態</dt><dd>正社員 / 契約社員</dd><dt>業務内容</dt><dd>ジュエリーのリモデル・リサイズ加工全般<br>石外し・新枠セッティング<br>お客様ジュエリーの状態確認・相談対応</dd><dt>応募資格</dt><dd>ジュエリー加工の実務経験（年数不問）<br>繊細な手仕事が得意な方<br>お客様の想いに寄り添える方</dd><dt>勤務地</dt><dd>東京都港区南青山2丁目5-17 ポーラ青山ビルディング5階 Overlap</dd><dt>勤務時間</dt><dd>10:00〜19:00（休憩1時間）</dd><dt>休日</dt><dd>週休2日制（シフト制）</dd><dt>待遇</dt><dd>社会保険完備<br>交通費支給<br>経験・能力を考慮の上、決定</dd></dl>
+    <p class="mono-label" style="margin:72px 0 8px">BiSPOKEで働くということ</p>
+    <div class="serif" style="font-size:15px">
+      <p style="margin-top:1.4em">私たちは「満ちてから動く」を大切にしています。自己犠牲を美徳にしない。疲れたら休む。自分が満たされることが感性を守り、最高の仕事につながると信じています。</p>
+      <p style="margin-top:1.4em">セールで煽らない。スペックで競わない。不透明な業界慣習に同調しない。独自の審美眼と哲学で、自分たちの居場所をつくる。そんな環境で、あなたの技術と想いを活かしてみませんか。</p>
     </div>
-
-    <div class="content">
-        <div class="section-block">
-            <h2>この仕事について</h2>
-            <p>
-                お客様から預かるのは、貴金属ではなく「想い」です。<br><br>
-                お母様から譲り受けた指輪、大切な人が必死に働いて手に入れたネックレス——そこに宿る物語を受け取り、「今のあなた」のための新しい形へと仕立て直す。それがBiSPOKEのジュエリー職人の仕事です。<br><br>
-                リモデル・リサイズを中心としたジュエリー加工業務全般を担当していただきます。石外しから新枠へのセッティングまで、一貫して携わることができます。スペックや効率だけを追い求めるのではなく、一つひとつの仕事に丁寧に向き合える方を歓迎します。
-            </p>
-        </div>
-
-        <div class="section-block">
-            <h2>募集要項</h2>
-            <table class="detail-table">
-                <tr>
-                    <th>雇用形態</th>
-                    <td>正社員 / 契約社員</td>
-                </tr>
-                <tr>
-                    <th>業務内容</th>
-                    <td>ジュエリーのリモデル・リサイズ加工全般<br>石外し・新枠セッティング<br>お客様ジュエリーの状態確認・相談対応</td>
-                </tr>
-                <tr>
-                    <th>応募資格</th>
-                    <td>ジュエリー加工の実務経験（年数不問）<br>繊細な手仕事が得意な方<br>お客様の想いに寄り添える方</td>
-                </tr>
-                <tr>
-                    <th>勤務地</th>
-                    <td>東京都港区南青山2丁目5-17<br>ポーラ青山ビルディング5階 Overlap</td>
-                </tr>
-                <tr>
-                    <th>勤務時間</th>
-                    <td>10:00〜19:00（休憩1時間）</td>
-                </tr>
-                <tr>
-                    <th>休日</th>
-                    <td>週休2日制（シフト制）</td>
-                </tr>
-                <tr>
-                    <th>待遇</th>
-                    <td>社会保険完備<br>交通費支給<br>経験・能力を考慮の上、決定</td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="section-block">
-            <h2>BiSPOKEで働くということ</h2>
-            <p>
-                私たちは「満ちてから動く」を大切にしています。自己犠牲を美徳にしない。疲れたら休む。自分が満たされることが感性を守り、最高の仕事につながると信じています。<br><br>
-                セールで煽らない。スペックで競わない。不透明な業界慣習に同調しない。独自の審美眼と哲学で、自分たちの居場所をつくる。そんな環境で、あなたの技術と想いを活かしてみませんか。
-            </p>
-        </div>
-
-        <div class="cta-area">
-            <p>ご興味をお持ちの方は、お気軽にお問い合わせください。</p>
-            <a href="../index.html#contact" class="btn">相談する</a>
-            <br>
-            <a href="../index.html#jobs" class="btn-back">← 募集職種一覧に戻る</a>
-        </div>
+    <div style="margin-top:64px;text-align:center">
+      <a class="btn" href="mailto:info@bispoke.co.jp?subject=%E6%8E%A1%E7%94%A8%E5%BF%9C%E5%8B%9F%EF%BC%9Aジュエリー職人">相談する →</a>
+      <p style="margin-top:28px"><a href="/#careers" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.2em;border-bottom:1px solid currentColor">← 募集職種一覧に戻る</a></p>
     </div>
+  </div>
+</section>
 
-    <footer>
-        &copy; 2025 BiSPOKE Inc. All Rights Reserved.
-    </footer>
-
+<footer class="ft grain">
+  <div class="ft-top">
+    <div class="mono-label" style="line-height:2.2">BiSPOKE Inc.<br>Minami-Aoyama, Tokyo — Japan</div>
+    <nav class="ft-links"><a href="/">トップ</a><a href="/privacy">プライバシーポリシー</a><a href="/tokushoho">特定商取引法に基づく表記</a></nav>
+  </div>
+  <p class="ft-mega" aria-hidden="true">BiSPOKE</p>
+  <p class="ft-copy">© 2026 BiSPOKE Inc. — Retold, not retired.</p>
+</footer>
 </body>
 </html>
