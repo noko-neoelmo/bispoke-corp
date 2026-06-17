@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>口コミっとくん — QRコード</title>
+  <link rel="stylesheet" href="./style.css" />
+  <style>
+    .qr-page{max-width:560px;margin:0 auto;padding:28px 20px;text-align:center}
+    .qr-card{border:1px solid var(--line);border-radius:16px;padding:28px;background:#fff;margin:18px 0}
+    #qr img,#qr canvas{width:240px;height:240px;image-rendering:pixelated}
+    .qr-store{font-size:1.1rem;font-weight:700;margin:14px 0 4px;color:var(--accent)}
+    .qr-url{font-size:.8rem;color:var(--sub);word-break:break-all;margin:6px 0 0}
+    .qr-tip{font-size:.9rem;color:var(--sub);margin:8px 0}
+    .field{display:flex;gap:8px;margin:14px 0}
+    .field input{flex:1;border:1.5px solid var(--line);border-radius:10px;padding:10px;font-size:1rem}
+    @media print{.no-print{display:none}.qr-card{border:none}}
+  </style>
+</head>
+<body>
+  <div class="qr-page">
+    <h1 style="font-size:1.2rem">口コミっとくん QRコード</h1>
+    <p class="qr-tip no-print">体験のあと、このQRコードをお客様に読み取っていただきます。</p>
+
+    <div class="field no-print">
+      <input id="store-input" type="text" placeholder="店舗ID（例: demo）" />
+      <button class="btn btn-primary" id="gen" style="width:auto;margin:0;padding:10px 18px">表示</button>
+    </div>
+
+    <div class="qr-card">
+      <div id="qr"></div>
+      <p class="qr-store" id="qr-store"></p>
+      <p class="qr-tip">体験はいかがでしたか？<br>感想をお聞かせください</p>
+      <p class="qr-url" id="qr-url"></p>
+    </div>
+
+    <button class="btn btn-sub no-print" id="print" style="max-width:260px;margin:0 auto">印刷する</button>
+  </div>
+
+  <script src="./vendor/qrcode.js"></script>
+  <script src="./qr.js"></script>
+</body>
+</html>

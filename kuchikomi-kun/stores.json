@@ -1,0 +1,42 @@
+{
+  "demo": {
+    "name": "体験工房デモ店",
+    "googleReviewUrl": "https://search.google.com/local/writereview?placeid=ChIJ_____DEMO_____",
+    "accent": "#1B2A4A",
+    "logoText": "口コミっとくん",
+    "experiences": [
+      "刻印体験",
+      "パーマネントジュエリー",
+      "ルース（天然石）選び",
+      "リング研磨体験"
+    ],
+    "highlights": [
+      "スタッフの対応がよかった",
+      "お店の雰囲気がよかった",
+      "仕上がりに満足",
+      "説明がわかりやすかった",
+      "また来たい"
+    ],
+    "thanks": "本日はありがとうございました。"
+  },
+  "retold-kamakura": {
+    "name": "RETOLD TOKYO 鎌倉アトリエ",
+    "googleReviewUrl": "https://search.google.com/local/writereview?placeid=ChIJ_____RETOLD_KAMAKURA_____",
+    "accent": "#1B2A4A",
+    "logoText": "RETOLD TOKYO",
+    "experiences": [
+      "パーマネントジュエリー",
+      "刻印体験",
+      "ルース（天然石）選び",
+      "サイズ直し相談"
+    ],
+    "highlights": [
+      "スタッフの対応がよかった",
+      "雰囲気・内装がよかった",
+      "仕上がりに満足",
+      "説明がわかりやすかった",
+      "アクセスがよい"
+    ],
+    "thanks": "本日はありがとうございました。またのお越しをお待ちしております。"
+  }
+}
