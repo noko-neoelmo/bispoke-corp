@@ -38,5 +38,25 @@
       "アクセスがよい"
     ],
     "thanks": "本日はありがとうございました。またのお越しをお待ちしております。"
+  },
+  "glab-okachimachi": {
+    "name": "glab（御徒町）",
+    "googleReviewUrl": "https://search.google.com/local/writereview?placeid=ChIJ_____GLAB_OKACHIMACHI_____",
+    "accent": "#2C2C2C",
+    "logoText": "glab",
+    "experiences": [
+      "手作り結婚指輪",
+      "手作り婚約指輪",
+      "ペアリング作り",
+      "彫金・リング作り体験"
+    ],
+    "highlights": [
+      "スタッフの対応がよかった",
+      "お店の雰囲気がよかった",
+      "仕上がりに満足",
+      "説明がわかりやすかった",
+      "また作りに来たい"
+    ],
+    "thanks": "本日はありがとうございました。"
   }
 }
