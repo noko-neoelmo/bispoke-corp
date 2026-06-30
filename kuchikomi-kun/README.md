@@ -34,18 +34,38 @@ QR提示 → スキャン → 星評価
 | `kuchikomi-kun/app.js` | フローのロジック（vanilla JS、ビルド不要） |
 | `kuchikomi-kun/style.css` | スタイル（モバイルファースト） |
 | `kuchikomi-kun/stores.json` | 店舗設定（マルチテナント） |
-| `kuchikomi-kun/qr.html` / `qr.js` | スタッフ用QR表示・印刷ページ |
+| `kuchikomi-kun/settei.html` / `settei.js` | **店舗向け設定ページ**（URL・設問・回答を編集 → お客様用リンク/QRを自動生成。バックエンド不要、設定はリンクに保存） |
+| `kuchikomi-kun/qr.html` / `qr.js` | スタッフ用QR表示・印刷ページ（登録店舗 `?s=` 用） |
 | `kuchikomi-kun/vendor/qrcode.js` | QR生成ライブラリ（qrcode-generator, MIT, ベンダリング） |
 | `api/kuchikomi-draft.js` | 口コミ下書き生成（Claude / Vercel Serverless） |
 | `api/kuchikomi-feedback.js` | 非公開フィードバック転送（任意のWebhook） |
 
 ビルド不要の静的サイト＋サーバレス関数。`bispoke-corp`（Vercel, `outputDirectory: "."`）にそのまま乗る。
 
-## 使い方（店舗側）
+## 使い方
 
-1. `stores.json` に店舗を追加（店舗ID・店名・Googleの口コミ投稿URL・体験メニュー等）。
+### A. 店舗が自分で運用する（設定ページ・推奨／コード不要）
+
+`settei.html` を開いて、店舗側が自分で設定できる。
+
+1. **設定ページ** `…/kuchikomi-kun/settei.html` を開く。
+2. 店名・Google口コミURL（または Place ID）・体験メニュー・よかった点 等を入力。
+3. 「リンク・QRを作成」→ **お客様用リンクとQR**が生成される（印刷可）。
+4. QRを掲示。お客様が読むと設定が反映された口コミ画面が開く。
+5. あとで変更したい場合は「編集用リンク」（ブックマーク）を開けば、前回の設定が読み込まれた状態で編集できる。
+
+> 仕組み: 設定は **お客様用リンクのURLハッシュ（`#cfg=...`）に埋め込まれる**。サーバー登録・ログイン・DB不要。`stores.json` への追記やデプロイも不要。
+> 注意: **設定を変えるとリンク（=QR）も変わる**ため、変更後はQRを貼り替える。QRを固定したい本格運用は「独立リポジトリ＋DB保存」への発展で対応（下記）。
+> 既存の登録店舗をベースに編集したい場合は `settei.html?s=店舗ID` で開くと初期値が入る。
+
+### B. 運営が登録店舗として配信する（`stores.json`）
+
+QRを固定したい・運営が一括管理したい場合は、`stores.json` に店舗を追加する。
+
+1. `stores.json` に店舗を追加（店舗ID・店名・Google口コミURL・体験メニュー等）。
 2. `qr.html?s=店舗ID` を開いて **QRを印刷**し、レジ横やお渡し時に提示。
 3. お客様が読み取ると `index.html?s=店舗ID` に着地し、口コミフローが始まる。
+   （`#cfg=` 埋め込み設定があればそちらが優先される。）
 
 ### Googleの口コミ投稿URL（`googleReviewUrl`）の取り方
 

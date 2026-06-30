@@ -31,6 +31,22 @@
     return (p.get("s") || p.get("store") || "demo").trim();
   }
 
+  // URLハッシュ #cfg=<base64url(JSON)> に埋め込まれた店舗設定を読む（管理ページが生成）
+  function b64urlDecode(s) {
+    s = s.replace(/-/g, "+").replace(/_/g, "/");
+    while (s.length % 4) s += "=";
+    var bin = atob(s);
+    var bytes = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    return new TextDecoder("utf-8").decode(bytes);
+  }
+  function getEmbeddedConfig() {
+    var m = (location.hash || "").match(/cfg=([^&]+)/);
+    if (!m) return null;
+    try { return JSON.parse(b64urlDecode(decodeURIComponent(m[1]))); }
+    catch (e) { return null; }
+  }
+
   // opts: { multi: boolean, onChange: function(value) }
   // multi=true → onChange receives an array; multi=false → a single string.
   function renderChips(container, items, opts) {
@@ -66,8 +82,9 @@
     renderChips($("chips-exp"), store.experiences || [], { multi: false, onChange: function (v) { state.experience = v; } });
     // よかった点（複数）
     renderChips($("chips-hl"), store.highlights || [], { multi: true, onChange: function (list) { state.highlights = list; } });
-    // 気になった点（複数）
-    renderChips($("chips-neg"), NEG_CHIPS, { multi: true, onChange: function (list) { state.negatives = list; } });
+    // 気になった点（複数）— 設定があればそれを、無ければ既定を使用
+    var negs = (store.negatives && store.negatives.length) ? store.negatives : NEG_CHIPS;
+    renderChips($("chips-neg"), negs, { multi: true, onChange: function (list) { state.negatives = list; } });
   }
 
   /* ---- 評価 ---- */
@@ -181,6 +198,21 @@
 
   /* ---- 起動 ---- */
   function boot() {
+    bindControls();
+
+    // ① 管理ページが生成した埋め込み設定があれば最優先で使う（バックエンド不要の自己運用）
+    var embedded = getEmbeddedConfig();
+    if (embedded) {
+      state.storeId = embedded.id || "custom";
+      state.store = embedded;
+      initStore(state.store);
+      setupStars();
+      dl("kk_view", { storeId: state.storeId, embedded: true });
+      show("screen-rate");
+      return;
+    }
+
+    // ② 通常は stores.json から ?s=店舗ID で読む
     state.storeId = getStoreId();
     fetch("./stores.json", { cache: "no-store" })
       .then(function (r) { return r.json(); })
@@ -195,7 +227,9 @@
       .catch(function () {
         $("screen-loading").innerHTML = '<p class="loading">店舗情報を読み込めませんでした。</p>';
       });
+  }
 
+  function bindControls() {
     $("btn-make").addEventListener("click", function () { buildDraft(false); });
     $("btn-regen").addEventListener("click", function () {
       var b = $("btn-regen"); b.disabled = true; b.textContent = "作成中…";
