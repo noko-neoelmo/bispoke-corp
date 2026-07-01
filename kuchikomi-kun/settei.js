@@ -43,6 +43,7 @@
       experiences: lines("f-exp"),
       highlights: lines("f-hl")
     };
+    var map = val("f-map"); if (map) cfg.mapUrl = map;
     var logo = val("f-logo"); if (logo) cfg.logoText = logo;
     var accent = val("f-accent"); if (accent && accent.toLowerCase() !== "#1b2a4a") cfg.accent = accent;
     var thanks = val("f-thanks"); if (thanks) cfg.thanks = thanks;
@@ -56,7 +57,7 @@
   function generate() {
     var cfg = buildConfig();
     if (!cfg.name) { msg("店舗名を入力してください。", true); return; }
-    if (!cfg.googleReviewUrl) { msg("Google口コミURL（または Place ID）を入力してください。", true); return; }
+    if (!cfg.googleReviewUrl && !cfg.mapUrl) { msg("Google口コミURL または Googleマップのリンクのどちらかを入力してください。", true); return; }
     if (!cfg.experiences.length) { msg("体験メニューを1つ以上入力してください。", true); return; }
 
     var b64 = b64urlEncode(JSON.stringify(cfg));
@@ -88,6 +89,7 @@
     currentId = cfg.id || "";
     $("f-name").value = cfg.name || "";
     $("f-url").value = cfg.googleReviewUrl || "";
+    $("f-map").value = cfg.mapUrl || "";
     $("f-logo").value = cfg.logoText || "";
     $("f-accent").value = cfg.accent || "#1B2A4A";
     $("f-exp").value = (cfg.experiences || []).join("\n");

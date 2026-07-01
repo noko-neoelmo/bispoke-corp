@@ -30,7 +30,11 @@
 <body>
   <div class="admin">
     <h1>口コミっとくん 設定ページ</h1>
-    <p class="sub">この画面で設定し、生成された<strong>お客様用リンク・QR</strong>を掲示してください。設定はリンクに保存されます（サーバー登録不要）。</p>
+    <p class="sub">
+      工房ごとにこの画面で設定するだけ。<strong>3ステップ</strong>で始められます。<br>
+      ①店舗情報とGoogleのリンクを入力 → ②設問を入力 → ③「作成」で<strong>お客様用リンク・QR</strong>を発行して掲示。<br>
+      <span class="hint">設定はリンクに保存されます。サーバー登録・ログイン不要。工房ごとにこのページを共有すれば、各自で設定できます。</span>
+    </p>
 
     <div class="sec">
       <h2>① 店舗情報</h2>
@@ -38,9 +42,14 @@
       <input type="text" id="f-name" placeholder="例）glab（御徒町）" />
 
       <label>Google口コミURL（または Place ID）
-        <span class="hint">Googleで店名検索 →「クチコミを書く」のリンク。Place IDだけでも可。</span>
+        <span class="hint">「クチコミを書く」の直リンクが最も投稿されやすいです。Place IDだけでも可。分からなければ空欄でOK（下のマップURLを使います）。</span>
       </label>
       <input type="url" id="f-url" placeholder="https://search.google.com/local/writereview?placeid=..." />
+
+      <label>Googleマップの店舗リンク（任意）
+        <span class="hint">Googleマップで店舗を開き「共有」→ リンクをコピー。口コミURLが無い場合はこちらを使います。</span>
+      </label>
+      <input type="url" id="f-map" placeholder="https://maps.app.goo.gl/... または https://www.google.com/maps/place/..." />
 
       <label>ロゴ表示テキスト（任意）</label>
       <input type="text" id="f-logo" placeholder="例）glab" />

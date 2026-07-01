@@ -166,8 +166,8 @@
     var txt = $("draft").value.trim();
     copyText(txt).then(function () {
       dl("kk_post", { rating: state.rating });
-      var url = state.store.googleReviewUrl;
-      window.open(url, "_blank", "noopener");
+      var url = state.store.googleReviewUrl || state.store.mapUrl;
+      if (url) window.open(url, "_blank", "noopener");
       $("thanks-title").textContent = "ありがとうございました";
       $("thanks-msg").textContent = "コピーした文章を、Googleの口コミ欄に貼り付けて投稿してください。";
       show("screen-thanks");
