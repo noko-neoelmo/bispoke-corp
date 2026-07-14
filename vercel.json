@@ -25,11 +25,11 @@
   "rewrites": [
     {
       "source": "/resize",
-      "destination": "https://bispoke-resize-lp.vercel.app/"
+      "destination": "https://bispoke-resize-lp-sayakas-projects-120af38f.vercel.app/resize"
     },
     {
       "source": "/resize/:path*",
-      "destination": "https://bispoke-resize-lp.vercel.app/:path*"
+      "destination": "https://bispoke-resize-lp-sayakas-projects-120af38f.vercel.app/resize/:path*"
     }
   ],
   "redirects": [
