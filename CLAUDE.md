@@ -2,6 +2,22 @@
 
 株式会社BiSPOKE コーポレートサイト（静的HTML + CSS）。`index.html` / `services.html` / `privacy.html` / `tokushoho.html` 等、`corp.css` でスタイリング。
 
+## 判断の委譲（CEOに聞かずに進めてよいこと）
+
+判断基準は**取り消しコスト**。正本: `bispoke-cxo/skills/delegation-policy.md`（`delegation-policy` スキル）。
+
+**自動でやる（聞かない）**
+- 既存ページのコピー修正・誤字・リンク切れ・表記ゆれ
+- DESIGN.md 準拠の範囲でのスタイル調整（色・余白・タイポ）
+- meta / OGP / sitemap.xml / robots.txt の更新
+- 画像の最適化・WebP化
+
+**必ず聞く（asks登録して waiting_ceo）**
+- **法定表記の内容変更**（`privacy.html` / `tokushoho.html`）— 体裁の修正は自動、記載内容の変更は承認
+- 会社情報・沿革・役員・資本の記述変更
+- サービス内容・価格の記述変更（正本は事業計画v5とサービス基本情報）
+- 新規ページの追加、`jobs/` の採用条件の変更
+
 ## デザインシステム（DESIGN.md）
 
 コーポレートサイトの配色・タイポ・トーンは RETOLD TOKYO / BiSPOKE デザインシステムに従う。トークンの正本は [`./DESIGN.md`](./DESIGN.md)（[Google Labs DESIGN.md フォーマット](https://github.com/google-labs-code/design.md)準拠、`bispoke-cxo` がマスター）。
