@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>口コミっとくん</title>
+  <meta name="description" content="体験はいかがでしたか？感想を数タップで、口コミの下書きをお手伝いします。" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app" id="app">
+    <!-- ローディング -->
+    <section class="screen is-active" id="screen-loading">
+      <div class="loading">読み込み中…</div>
+    </section>
+
+    <!-- 1. 評価 -->
+    <section class="screen" id="screen-rate">
+      <header class="store-head">
+        <p class="brand" id="brand"></p>
+        <h1 class="store-name" id="store-name"></h1>
+      </header>
+      <p class="lead">本日の体験は<br>いかがでしたか？</p>
+      <div class="stars" id="stars" role="radiogroup" aria-label="満足度の評価">
+        <button class="star" data-v="1" aria-label="星1">★</button>
+        <button class="star" data-v="2" aria-label="星2">★</button>
+        <button class="star" data-v="3" aria-label="星3">★</button>
+        <button class="star" data-v="4" aria-label="星4">★</button>
+        <button class="star" data-v="5" aria-label="星5">★</button>
+      </div>
+      <p class="star-hint" id="star-hint">星をタップしてください</p>
+    </section>
+
+    <!-- 2. 高評価：感想チップ -->
+    <section class="screen" id="screen-positive">
+      <h2 class="q">ありがとうございます！<br>どんなところがよかったですか？</h2>
+
+      <p class="label">体験したメニュー</p>
+      <div class="chips" id="chips-exp"></div>
+
+      <p class="label">よかった点（いくつでも）</p>
+      <div class="chips" id="chips-hl"></div>
+
+      <p class="label">ひとこと（任意）</p>
+      <textarea id="freeword" class="freeword" rows="2" placeholder="例）丁寧に教えてもらえて楽しかったです"></textarea>
+
+      <button class="btn btn-primary" id="btn-make">口コミの下書きを作る</button>
+      <button class="btn btn-text" id="btn-to-private-1">店舗に直接つたえる</button>
+    </section>
+
+    <!-- 3. 下書き表示 -->
+    <section class="screen" id="screen-draft">
+      <h2 class="q">こちらでいかがですか？</h2>
+      <p class="sub">自由に書き換えてから投稿できます。</p>
+      <div class="draft-wrap">
+        <textarea id="draft" class="draft" rows="7" aria-label="口コミの下書き"></textarea>
+        <p class="draft-note" id="draft-note"></p>
+      </div>
+      <button class="btn btn-primary" id="btn-post">コピーして Google に投稿する</button>
+      <div class="row">
+        <button class="btn btn-sub" id="btn-regen">別の文面にする</button>
+        <button class="btn btn-sub" id="btn-copy">コピーだけ</button>
+      </div>
+      <button class="btn btn-text" id="btn-to-private-2">やっぱり店舗に直接つたえる</button>
+    </section>
+
+    <!-- 4. 低評価：非公開フィードバック -->
+    <section class="screen" id="screen-private">
+      <h2 class="q">教えていただけますか？</h2>
+      <p class="sub">いただいた内容は店舗へ直接届きます（公開されません）。</p>
+
+      <p class="label">気になった点</p>
+      <div class="chips" id="chips-neg"></div>
+
+      <p class="label">くわしく（任意）</p>
+      <textarea id="fb-text" class="freeword" rows="4" placeholder="改善のために、よろしければお聞かせください"></textarea>
+
+      <button class="btn btn-primary" id="btn-fb-send">店舗に送る</button>
+      <button class="btn btn-text" id="btn-to-google">Google の口コミに投稿する</button>
+    </section>
+
+    <!-- 5. 完了（投稿） -->
+    <section class="screen" id="screen-thanks">
+      <div class="done">✓</div>
+      <h2 class="q" id="thanks-title">ありがとうございました</h2>
+      <p class="sub" id="thanks-msg"></p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>powered by <strong>口コミっとくん</strong></span>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
