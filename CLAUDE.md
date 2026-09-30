@@ -2,6 +2,22 @@
 
 株式会社BiSPOKE コーポレートサイト（静的HTML + CSS）。`index.html` / `services.html` / `privacy.html` / `tokushoho.html` 等、`corp.css` でスタイリング。
 
+## 判断の委譲（CEOに聞かずに進めてよいこと）
+
+判断基準は**取り消しコスト**。正本: `bispoke-cxo/skills/delegation-policy.md`（`delegation-policy` スキル）。
+
+**自動でやる（聞かない）**
+- 既存ページのコピー修正・誤字・リンク切れ・表記ゆれ
+- DESIGN.md 準拠の範囲でのスタイル調整（色・余白・タイポ）
+- meta / OGP / sitemap.xml / robots.txt の更新
+- 画像の最適化・WebP化
+
+**必ず聞く（asks登録して waiting_ceo）**
+- **法定表記の内容変更**（`privacy.html` / `tokushoho.html`）— 体裁の修正は自動、記載内容の変更は承認
+- 会社情報・沿革・役員・資本の記述変更
+- サービス内容・価格の記述変更（正本は事業計画v5とサービス基本情報）
+- 新規ページの追加、`jobs/` の採用条件の変更
+
 ## デザインシステム（DESIGN.md）
 
 コーポレートサイトの配色・タイポ・トーンは RETOLD TOKYO / BiSPOKE デザインシステムに従う。トークンの正本は [`./DESIGN.md`](./DESIGN.md)（[Google Labs DESIGN.md フォーマット](https://github.com/google-labs-code/design.md)準拠、`bispoke-cxo` がマスター）。
@@ -11,6 +27,21 @@
 - 正本: https://github.com/noko-neoelmo/bispoke-cxo/blob/main/DESIGN.md
 
 > 注: コーポレートサイトに RETOLD TOKYO とは別のコーポレート専用アイデンティティが必要になった場合は、この `DESIGN.md` をフォークして調整する（その際は `bispoke-cxo` の正本との関係を明記すること）。
+
+## CEOへの報告（全セッション必須・書式固定）
+
+正本: `bispoke-cxo/skills/delegation-policy.md`（`delegation-policy` スキル）
+
+**見出しはこの3つだけ。1項目1行。理由・経緯は聞かれるまで書かない。**
+
+```
+## いま        終わったこと・動いているもの（最大3行）
+## つぎ        次にやること（最大3行）
+## あなたの判断  無ければ「なし」
+```
+
+- **数字は事実と解釈を分ける** — 生データ（コマンド／出力）を先に出し、解釈は `解釈:` と明示して分ける。取れていない値を推測で埋めず**「未取得」と書く**。単位・期間・母数・出典（正本v5/Supabase/Ads API/GA4）を必ず添える
+- **複雑なものは文章にしない** — 比較・フロー・数字の推移・全体像は**HTMLで図解**（Artifact）。チャットには結論3行＋リンクだけ置き、図の中身を書き写さない
 
 ## オフィス報告（BiSPOKE Office・全セッション必須）
 
